@@ -41,6 +41,12 @@ def check_events(test, setting, screen, characters,camera):
         if keys[pygame.K_LEFT]:
             camera.direction = 'left'
 
+        if keys[pygame.K_DOWN]:
+            camera.direction = 'down'
+        if keys[pygame.K_UP]:
+            camera.direction = 'up'
+
+
 
 
         # создание персонажей
@@ -51,4 +57,8 @@ def check_events(test, setting, screen, characters,camera):
             if event.key == pygame.K_RIGHT:
                 camera.direction = 'No'
             if event.key == pygame.K_LEFT:
+                camera.direction = 'No'
+            if event.key == pygame.K_UP:
+                camera.direction = 'No'
+            if event.key == pygame.K_DOWN:
                 camera.direction = 'No'

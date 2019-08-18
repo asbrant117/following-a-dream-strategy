@@ -15,7 +15,14 @@ class Camera():
                 test.rect.x +=  self.setting.camera_speed
                 for characret in characrets:
                     characret.rect.x +=  self.setting.camera_speed
-
+            if self.direction == 'up':
+                test.rect.y += self.setting.camera_speed
+                for characret in characrets:
+                    characret.rect.y += self.setting.camera_speed
+            if self.direction == 'down':
+                test.rect.y -= self.setting.camera_speed
+                for characret in characrets:
+                    characret.rect.y -= self.setting.camera_speed
 
 
 
