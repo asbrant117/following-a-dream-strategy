@@ -1,4 +1,5 @@
 import pygame
+from auxiliary_function import animation1
 
 # from auxiliary_function import animation
 
@@ -116,7 +117,7 @@ ANIMATION_Footmen_Stay_RIGHT_DOWN = [(1232, 19, 84, 92), (1232, 19, 84, 92), (12
 
 
 # как организовать функцию для переложения анимации
-class Animation():
+class Animation(object):
     def __init__(self):
 
         self.sprite_test = pygame.image.load('picter/Footmen.png').convert_alpha()
@@ -125,10 +126,11 @@ class Animation():
 
         # блок для анимации тестоого героя
         # передвижение
-        anim = []
-        for frame in ANIMATION_DOWN:
-            anim.append(self.sprite_test.subsurface(frame))
-        self.anim_test_down = anim
+        # anim = []
+        # for frame in ANIMATION_DOWN:
+        #     anim.append(self.sprite_test.subsurface(frame))
+        # self.anim_test_down = anim
+        self.anim_test_down = animation1(ANIMATION_DOWN, self.sprite_test.subsurface)
 
         anim = []
         for frame in ANIMATION_LEFT:
