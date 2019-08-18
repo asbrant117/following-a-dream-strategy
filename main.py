@@ -4,6 +4,7 @@ import display
 import events
 from settings import Settings
 from test_character import Test
+from camere import Camera
 
 
 def run_game():
@@ -26,10 +27,13 @@ def run_game():
     characters = []
     # character = Character (setting,screen)
 
+    #создаем камеру
+    camera = Camera(setting)
+
     # основной цикл
     while True:
         # события
-        events.check_events(test, setting, screen, characters)
+        events.check_events(test, setting, screen, characters,camera)
 
         # столкновения
         # test.collide_test(test,characters)
@@ -39,8 +43,9 @@ def run_game():
         display.update_screen(setting, screen, test, characters)
 
         test.update_test(dt)
+        camera.move(characters,test)
 
-        # счетчик времени для отображения кадра
+        # счетчик времени для отображения
         dt = clock.tick(setting.fps)
 
         # print(test.direction)

@@ -3,7 +3,21 @@ class Camera():
         # инициализируем настройки
         self.setting = setting
 
-        self
+        self.direction = 'no'
+
+    def move (self,characrets,test):
+
+            if self.direction == 'right':
+                test.rect.x -=  self.setting.camera_speed
+                for characret in characrets:
+                    characret.rect.x -=  self.setting.camera_speed
+            if self.direction == 'left':
+                test.rect.x +=  self.setting.camera_speed
+                for characret in characrets:
+                    characret.rect.x +=  self.setting.camera_speed
+
+
+
 
 
 # def camera(characters):

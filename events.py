@@ -3,9 +3,10 @@ import sys
 import pygame
 
 import create_character
+import camere
 
 
-def check_events(test, setting, screen, characters):
+def check_events(test, setting, screen, characters,camera):
     # обработка действий
     for event in pygame.event.get():
         # выход
@@ -34,6 +35,20 @@ def check_events(test, setting, screen, characters):
         if keys[pygame.K_w] and keys[pygame.K_d]:
             test.direction = 'right_up'
 
+        #передвижение камеры
+        if keys[pygame.K_RIGHT]:
+            camera.direction = 'right'
+        if keys[pygame.K_LEFT]:
+            camera.direction = 'left'
+
+
+
         # создание персонажей
         if keys[pygame.K_BACKSPACE]:
             create_character.create_characters(setting, screen, characters)
+
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_RIGHT:
+                camera.direction = 'No'
+            if event.key == pygame.K_LEFT:
+                camera.direction = 'No'

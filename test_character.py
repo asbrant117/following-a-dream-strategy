@@ -79,9 +79,9 @@ class Test(pygame.sprite.Sprite, animation.Animation):
     def collide_test(self, chatacters):
         for chatacter in chatacters:
             if sprite.collide_rect(self, chatacter):
-                if self.rect.x < chatacter.rect.x - 45:
+                if self.rect.x < chatacter.rect.x - 40:
                     self.collision = 'right'
-                if self.rect.x > chatacter.rect.x + 45:
+                if self.rect.x > chatacter.rect.x + 40:
                     self.collision = 'left'
                 if self.rect.y < chatacter.rect.y - 58:
                     self.collision = 'bottom'

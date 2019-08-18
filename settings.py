@@ -31,3 +31,7 @@ class Settings():
         self.test_x = 0
         self.test_y = 0
         self.test_health = 100
+
+        # параметры камеры
+        self.camera_speed = 10
+
