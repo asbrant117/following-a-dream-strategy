@@ -34,9 +34,6 @@ def check_events(test, setting, screen, characters):
         if keys[pygame.K_w] and keys[pygame.K_d]:
             test.direction = 'right_up'
 
-
-
         # создание персонажей
         if keys[pygame.K_BACKSPACE]:
             create_character.create_characters(setting, screen, characters)
-

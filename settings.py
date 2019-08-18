@@ -25,7 +25,6 @@ class Settings():
         self.health_colour_medium = (255, 255, 0)
         self.health_colour_low = (255, 0, 0)
 
-
         # параметры character
         self.test_speed = 4
         self.test_speed_2 = 2

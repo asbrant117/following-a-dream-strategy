@@ -15,15 +15,14 @@ def create_characters(setting, screen, characters):
         # if (x < (hero.rect.x - 150) or x > (hero.rect.x + 150)) or \
         #        (y < (hero.rect.y - 150) or y > (hero.rect.y + 150)):
         # создание персонажа
-        character = Character(setting, screen,x=x,y=y, view = 'footmen',comand = 1, health = 100)
-
+        character = Character(setting, screen, x=x, y=y, view='footmen', comand=1, health=100)
 
         characters.append(character)
         print(len(characters))
         return characters
 
         # проверка на пересечение с другими персонажами
-        #if not pygame.sprite.spritecollideany(character, characters):
+        # if not pygame.sprite.spritecollideany(character, characters):
         #    # при отуствии пересечений с чем либо, мы добавляем в группу и выходим из цикла
         #    characters.add(character)
         #    break

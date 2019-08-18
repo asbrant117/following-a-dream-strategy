@@ -1,28 +1,18 @@
 class Camera():
-    def __init__(self,setting):
-        #инициализируем настройки
+    def __init__(self, setting):
+        # инициализируем настройки
         self.setting = setting
-
 
         self
 
 
+# def camera(characters):
+#     for i in characters:
 
-
-
-def camera(characters):
-    for i in characters:
-
-
-
-
-
-
-
-#WIN_WIDTH = 800 #Ширина создаваемого окна
-#WIN_HEIGHT = 640 # Высота
+# WIN_WIDTH = 800 #Ширина создаваемого окна
+# WIN_HEIGHT = 640 # Высота
 #
-#class Camera(objtec):
+# class Camera(objtec):
 #    def __init__(self, camera_func, width, height):
 #        self.camera_func = camera_func
 #        self.state = Rect(0, 0, width, height)
@@ -34,7 +24,7 @@ def camera(characters):
 #        self.state = self.camera_func(self.state, target.rect)
 #
 #
-#def camera_configure(camera, target_rect):
+# def camera_configure(camera, target_rect):
 #    l, t, _, _ = target_rect
 #    _, _, w, h = camera
 #    l, t = -l + WIN_WIDTH / 2, -t + WIN_HEIGHT / 2
