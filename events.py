@@ -51,7 +51,7 @@ def check_events(test, setting, screen, characters,camera):
 
         # создание персонажей
         if keys[pygame.K_BACKSPACE]:
-            create_character.create_characters(setting, screen, characters)
+            create_character.create_characters(setting, screen, characters,camera)
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_RIGHT:

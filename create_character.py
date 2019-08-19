@@ -4,7 +4,7 @@ from character import Character
 
 
 # создаем по определенным критериям персонажий и добавляем в группу
-def create_characters(setting, screen, characters):
+def create_characters(setting, screen, characters,camera):
     # создание персонажа в определенных координатах
     while True:
         # рандомная выборка
@@ -15,7 +15,7 @@ def create_characters(setting, screen, characters):
         # if (x < (hero.rect.x - 150) or x > (hero.rect.x + 150)) or \
         #        (y < (hero.rect.y - 150) or y > (hero.rect.y + 150)):
         # создание персонажа
-        character = Character(setting, screen, x=x, y=y, view='footmen', comand=1, health=100)
+        character = Character(setting, screen, x=x, y=y, view='footmen', comand=1, health=100, camera_x= camera.x, camera_y= camera.y)
 
         characters.append(character)
         print(len(characters))
