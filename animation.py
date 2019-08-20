@@ -223,7 +223,7 @@ class Animation(object):
         anim = []
         for frame in ANIMATION_Footmen_LEFT_DOWN:
             anim.append(self.sprite_Footman.subsurface(frame))
-        self.anim_test_left_down = anim
+        self.anim_footmen_left_down = anim
 
         anim = []
         for frame in ANIMATION_Footmen_LEFT_UP:
