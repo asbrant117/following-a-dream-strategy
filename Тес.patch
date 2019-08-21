@@ -1,0 +1,15 @@
+Index: test_character.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- test_character.py	(date 1566325734000)
++++ test_character.py	(date 1566328758000)
+@@ -36,6 +36,7 @@
+         self.direction = 'down'
+         self.collision = 'No'
+ 
++    #
+     # Функция помогающая отслеживать перемещение
+     def update_test(self, dt):
+ 

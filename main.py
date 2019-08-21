@@ -5,9 +5,11 @@ import events
 from settings import Settings
 from test_character import Test
 from camere import Camera
+from terra_tiles import Terra_Tiles
 
 
 def run_game():
+
     pygame.init()
 
     # создаем объект настроек.
@@ -30,6 +32,44 @@ def run_game():
     #создаем камеру
     camera = Camera(setting)
 
+
+
+    #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    # временно!!!!
+    level = [
+        "----------------------------------",
+        "----------------------------------",
+        "----------------------------------",
+        "----------------------------------",
+        "----------------------------------",
+        "----------------------------------",
+        "----------------------------------",
+        "----------------------------------",
+        "----------------------------------",
+        "----------------------------------",
+        "----------------------------------",
+        "----------------------------------",
+        "----------------------------------",
+        "----------------------------------",
+        "----------------------------------",
+        "----------------------------------",
+        "----------------------------------",
+        "----------------------------------",
+        "----------------------------------"]
+    x = y = 0
+    tiles = []
+    for row in level:  # строка
+        for col in row:  # часть строки
+            if col == '-':
+                tile = Terra_Tiles(setting,screen,x=x,y=y,view='grass')
+                tiles.append(tile)
+            x += 32
+        y+=32
+        x=0
+
+
+
+
     # основной цикл
     while True:
         # события
@@ -40,7 +80,7 @@ def run_game():
         test.collide_test(characters)
 
         # отображение
-        display.update_screen(setting, screen, test, characters)
+        display.update_screen(setting, screen, test, characters,tiles)
 
         test.update_test(dt)
         camera.move(characters,test)

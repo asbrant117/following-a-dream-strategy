@@ -35,3 +35,7 @@ class Settings():
         # параметры камеры
         self.camera_speed = 10
 
+        # параметры поля травы
+        self.tile_width = 32
+        self.tile_length = 32
+

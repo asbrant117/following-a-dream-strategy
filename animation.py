@@ -1,4 +1,5 @@
 import pygame
+
 from auxiliary_function import animation1
 
 # from auxiliary_function import animation
@@ -114,7 +115,10 @@ ANIMATION_Footmen_Stay_RIGHT = [(1088, 17, 70, 92), (1088, 17, 70, 92), (1088, 1
                                 (1088, 17, 70, 92), (1088, 17, 70, 92), (1088, 17, 70, 92), (1088, 17, 70, 92)]
 ANIMATION_Footmen_Stay_RIGHT_DOWN = [(1232, 19, 84, 92), (1232, 19, 84, 92), (1232, 19, 84, 92), (1232, 19, 84, 92),
                                      (1232, 19, 84, 92), (1232, 19, 84, 92), (1232, 19, 84, 92), (1232, 19, 84, 92)]
+ANIMATION_Grass = [(0, 429, 32, 32)]
 
+
+picther = pygame.image.load('picter/TerraTiles.png')
 
 # как организовать функцию для переложения анимации
 class Animation(object):
@@ -123,6 +127,11 @@ class Animation(object):
         self.sprite_test = pygame.image.load('picter/Footmen.png').convert_alpha()
         self.sprite_Footman = pygame.image.load('picter/Footmen.png').convert_alpha()
         self.sprite_Grunt = pygame.image.load('picter/Grunt.png').convert_alpha()
+        # self.sprite_Grass= pygame.image.load('picter/TerraTiles.png').convert_alpha()
+
+        self.sprite_Grass = picther
+
+        self.amim_grass = animation1(ANIMATION_Grass, self.sprite_Grass.subsurface)
 
         # блок для анимации тестоого героя
         # передвижение
