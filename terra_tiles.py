@@ -16,9 +16,8 @@ class Terra_Tiles(pygame.sprite.Sprite, animation.Animation):
         self.skip_frame = 0
         self.frame = 0
 
-        #орпеделяем параметры
-        self.view = view
 
+        self.view = view
         if view == 'grass':
             self.width = self.setting.tile_width
             self.length = self.setting.tile_length

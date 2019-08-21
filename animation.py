@@ -1,3 +1,5 @@
+import os
+from pygame import *
 import pygame
 
 from auxiliary_function import animation1
@@ -117,19 +119,25 @@ ANIMATION_Footmen_Stay_RIGHT_DOWN = [(1232, 19, 84, 92), (1232, 19, 84, 92), (12
                                      (1232, 19, 84, 92), (1232, 19, 84, 92), (1232, 19, 84, 92), (1232, 19, 84, 92)]
 ANIMATION_Grass = [(0, 429, 32, 32)]
 
+#
+# picther = pygame.image.load(os.path.join('picter/TerraTiles.png'))
+ICON_DIR = os.path.dirname(__file__)  # Полный путь к каталогу с файлами
 
-picther = pygame.image.load('picter/TerraTiles.png')
 
 # как организовать функцию для переложения анимации
 class Animation(object):
     def __init__(self):
 
-        self.sprite_test = pygame.image.load('picter/Footmen.png').convert_alpha()
-        self.sprite_Footman = pygame.image.load('picter/Footmen.png').convert_alpha()
-        self.sprite_Grunt = pygame.image.load('picter/Grunt.png').convert_alpha()
+        self.sprite_test = pygame.image.load(os.path.join('picter/Footmen.png')).convert_alpha()
+        self.sprite_Footman = pygame.image.load(os.path.join('picter/Footmen.png')).convert_alpha()
+        self.sprite_Grunt = pygame.image.load(os.path.join('picter/Grunt.png')).convert_alpha()
         # self.sprite_Grass= pygame.image.load('picter/TerraTiles.png').convert_alpha()
 
-        self.sprite_Grass = picther
+        self.sprite_Grass = image.load('%s/picter/TerraTiles.png' % ICON_DIR)
+
+
+
+
 
         self.amim_grass = animation1(ANIMATION_Grass, self.sprite_Grass.subsurface)
 
