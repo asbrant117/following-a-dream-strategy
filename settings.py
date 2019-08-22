@@ -2,8 +2,8 @@ class Settings():
     # класс для хранения всех настроик игры
     def __init__(self):
         # параметры экрана
-        self.screen_width = 1200  # 1600
-        self.screen_height = 800  # 900
+        self.screen_width = 800  # 1600
+        self.screen_height = 600  # 900
         self.screen_color = (230, 230, 230)
 
         # параметры времени

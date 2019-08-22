@@ -8,9 +8,9 @@ pichter = pygame.image.load('%s/picter/TerraTiles.png' % ICON_DIR)
 
 
 class Terra_Tiles(pygame.sprite.Sprite):
-    def __init__(self, setting, screen, x, y, view):
+    def __init__(self, setting, screen_save, x, y, view):
         pygame.sprite.Sprite.__init__(self)
-        self.screen = screen
+        self.screen_save = screen_save
         self.setting = setting
 
         # данные времени для анимации
@@ -49,4 +49,4 @@ class Terra_Tiles(pygame.sprite.Sprite):
 
 
 
-        self.screen.blit(self.image, self.rect)
+        self.screen_save.blit(self.image, self.rect)
