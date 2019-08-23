@@ -5,7 +5,7 @@ import pygame
 import create_character
 
 
-def check_events(test, setting, screen, characters, camera):
+def check_events(test, setting, screen, characters, camera,animation):
     # обработка действий
     for event in pygame.event.get():
         # выход
@@ -47,7 +47,7 @@ def check_events(test, setting, screen, characters, camera):
 
         # создание персонажей
         if keys[pygame.K_BACKSPACE]:
-            create_character.create_characters(setting, screen, characters, camera)
+            create_character.create_characters(setting, screen, characters, camera,animation)
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_RIGHT:

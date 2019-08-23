@@ -1,9 +1,13 @@
-import pygame
 from pygame import *
 
 from auxiliary_function import animation1
 
-# from auxiliary_function import animation
+# подсказка
+#       1
+#   8       2
+# 7           3
+#   6       4
+#       5
 
 # анимация для тестового героя
 # передвижение
@@ -118,8 +122,6 @@ ANIMATION_Footmen_Stay_RIGHT_DOWN = [(1232, 19, 84, 92), (1232, 19, 84, 92), (12
                                      (1232, 19, 84, 92), (1232, 19, 84, 92), (1232, 19, 84, 92), (1232, 19, 84, 92)]
 ANIMATION_Grass = [(0, 429, 32, 32)]
 
-#
-# picther = pygame.image.load(os.path.join('picter/TerraTiles.png'))
 ICON_DIR = os.path.dirname(__file__)  # Полный путь к каталогу с файлами
 
 
@@ -127,11 +129,14 @@ ICON_DIR = os.path.dirname(__file__)  # Полный путь к каталог�
 class Animation(object):
     def __init__(self):
 
-        self.sprite_test = pygame.image.load(os.path.join('picter/Footmen.png')).convert_alpha()
-        self.sprite_Footman = pygame.image.load(os.path.join('picter/Footmen.png')).convert_alpha()
-        self.sprite_Grunt = pygame.image.load(os.path.join('picter/Grunt.png')).convert_alpha()
-        # self.sprite_Grass= pygame.image.load('picter/TerraTiles.png').convert_alpha()
+        self.time = 180
+        self.work_time = 0
+        self.skip_frame = 0
+        self.frame = 0
 
+        self.sprite_test = image.load('%s/picter/Footmen.png' % ICON_DIR)
+        self.sprite_Footman = image.load('%s/picter/Footmen.png' % ICON_DIR)
+        self.sprite_Grunt = image.load('%s/picter/Grunt.png' % ICON_DIR)
         self.sprite_Grass = image.load('%s/picter/TerraTiles.png' % ICON_DIR)
 
         self.amim_grass = animation1(ANIMATION_Grass, self.sprite_Grass.subsurface)
