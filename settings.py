@@ -38,4 +38,3 @@ class Settings():
         # параметры поля травы
         self.tile_width = 32
         self.tile_length = 32
-

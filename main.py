@@ -2,10 +2,10 @@ import pygame
 
 import display
 import events
+from background import background
 from camere import Camera
 from settings import Settings
 from test_character import Test
-from background import background
 
 
 def run_game():
@@ -35,8 +35,6 @@ def run_game():
 
     # создаем камеру
     camera = Camera(setting)
-
-
 
     # основной цикл
     while True:

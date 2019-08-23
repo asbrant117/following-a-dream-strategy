@@ -4,7 +4,7 @@ import animation
 
 
 class Character(pygame.sprite.Sprite, animation.Animation):
-    def __init__(self, setting, screen, view, comand, health, x, y, camera_x,camera_y):
+    def __init__(self, setting, screen, view, comand, health, x, y, camera_x, camera_y):
         pygame.sprite.Sprite.__init__(self)
         animation.Animation.__init__(self)
         # инициализирует героя и поверхность

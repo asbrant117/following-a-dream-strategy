@@ -1,6 +1,5 @@
-import os
-from pygame import *
 import pygame
+from pygame import *
 
 from auxiliary_function import animation1
 
@@ -134,10 +133,6 @@ class Animation(object):
         # self.sprite_Grass= pygame.image.load('picter/TerraTiles.png').convert_alpha()
 
         self.sprite_Grass = image.load('%s/picter/TerraTiles.png' % ICON_DIR)
-
-
-
-
 
         self.amim_grass = animation1(ANIMATION_Grass, self.sprite_Grass.subsurface)
 

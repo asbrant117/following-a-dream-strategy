@@ -1,6 +1,6 @@
-import pygame
 import os
-import animation
+
+import pygame
 
 ANIMATION_Grass = [(0, 429, 32, 32)]
 ICON_DIR = os.path.dirname(__file__)  # Полный путь к каталогу с файлами
@@ -13,14 +13,7 @@ class Terra_Tiles(pygame.sprite.Sprite):
         self.screen_save = screen_save
         self.setting = setting
 
-        # данные времени для анимации
-        self.time = setting.time
-        self.work_time = 0
-        self.skip_frame = 0
-        self.frame = 0
-
         self.image = pichter.subsurface((0, 429, 32, 32))
-
 
         self.view = view
         if view == 'grass':
@@ -33,8 +26,6 @@ class Terra_Tiles(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
 
-
-
     # def update(self, dt):
     #     # время жизни кадра
     #     self.work_time += dt
@@ -46,7 +37,4 @@ class Terra_Tiles(pygame.sprite.Sprite):
     #             self.frame = 0
 
     def blit(self):
-
-
-
         self.screen_save.blit(self.image, self.rect)

@@ -8,31 +8,28 @@ class Camera():
 
         self.direction = 'no'
 
-    def move (self,characrets,test):
+    def move(self, characrets, test):
 
-            if self.direction == 'right':
-                self.x -= self.setting.camera_speed
-                test.rect.x -=  self.setting.camera_speed
-                for characret in characrets:
-                    characret.rect.x -=  self.setting.camera_speed
-            if self.direction == 'left':
-                self.x +=  self.setting.camera_speed
-                test.rect.x +=  self.setting.camera_speed
-                for characret in characrets:
-                    characret.rect.x +=  self.setting.camera_speed
-            if self.direction == 'up':
-                self.y += self.setting.camera_speed
-                test.rect.y += self.setting.camera_speed
-                for characret in characrets:
-                    characret.rect.y += self.setting.camera_speed
-            if self.direction == 'down':
-                self.y -= self.setting.camera_speed
-                test.rect.y -= self.setting.camera_speed
-                for characret in characrets:
-                    characret.rect.y -= self.setting.camera_speed
-
-
-
+        if self.direction == 'right':
+            self.x -= self.setting.camera_speed
+            test.rect.x -= self.setting.camera_speed
+            for characret in characrets:
+                characret.rect.x -= self.setting.camera_speed
+        if self.direction == 'left':
+            self.x += self.setting.camera_speed
+            test.rect.x += self.setting.camera_speed
+            for characret in characrets:
+                characret.rect.x += self.setting.camera_speed
+        if self.direction == 'up':
+            self.y += self.setting.camera_speed
+            test.rect.y += self.setting.camera_speed
+            for characret in characrets:
+                characret.rect.y += self.setting.camera_speed
+        if self.direction == 'down':
+            self.y -= self.setting.camera_speed
+            test.rect.y -= self.setting.camera_speed
+            for characret in characrets:
+                characret.rect.y -= self.setting.camera_speed
 
 # def camera(characters):
 #     for i in characters:
