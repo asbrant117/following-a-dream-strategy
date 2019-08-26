@@ -13,7 +13,6 @@ class Character(pygame.sprite.Sprite):
 
 
         # изображение героя и выделенный прямоугольник
-        self.image = self.animation.anim_footmen_stay_up   #
         self.rect = pygame.Rect(x, y, 54, 64)
 
         # координаты расположения
@@ -52,21 +51,21 @@ class Character(pygame.sprite.Sprite):
     def blit_character(self):
         if self.view == 'footmen':
             if self.direction == 'right':
-                self.image = self.animation.anim_footmen_right
+                self.image = self.animation.anim_footmen_2G
             if self.direction == 'left':
-                self.image = self.animation.anim_footmen_left
+                self.image = self.animation.anim_footmen_7G
             if self.direction == 'up':
-                self.image = self.animation.anim_footmen_up
+                self.image = self.animation.anim_footmen_1G
             if self.direction == 'down':
-                self.image = self.animation.anim_footmen_down
+                self.image = self.animation.anim_footmen_5G
             if self.direction == 'left_down':
-                self.image = self.animation.anim_footmen_left_down
+                self.image = self.animation.anim_footmen_6G
             if self.direction == 'left_up':
-                self.image = self.animation.anim_footmen_left_up
+                self.image = self.animation.anim_footmen_8G
             if self.direction == 'right_down':
-                self.image = self.animation.anim_footmen_right_down
+                self.image = self.animation.anim_footmen_4G
             if self.direction == 'right_up':
-                self.image = self.animation.anim_footmen_right_up
+                self.image = self.animation.anim_footmen_2G
 
             #  if self.direction == 'stay_down':
             #      self.image = self.animation_test_stay_down

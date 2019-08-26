@@ -1,393 +1,162 @@
 from pygame import *
+import os
+import frame
+from auxiliary_function import list_frame
 
-from auxiliary_function import animation1
-
-# подсказка
+# подсказка # S - стоит, G - идти
 #       1
 #   8       2
 # 7           3
 #   6       4
 #       5
 
-# анимация для тестового героя
-# передвижение
-ANIMATION_DOWN = [(33, 19, 64, 92), (38, 250, 64, 92), (41, 140, 64, 92), (38, 250, 64, 92), (33, 19, 64, 92),
-                  (32, 445, 64, 92), (32, 349, 66, 92), (32, 445, 64, 92)]
-ANIMATION_LEFT_DOWN = [(159, 20, 84, 92), (159, 250, 89, 92), (159, 140, 89, 92), (159, 250, 89, 92), (159, 20, 84, 92),
-                       (159, 442, 89, 96), (162, 344, 89, 92), (159, 442, 89, 96)]
-ANIMATION_LEFT = [(310, 17, 70, 92), (306, 250, 105, 92), (300, 140, 105, 92), (306, 250, 105, 92), (310, 17, 70, 92),
-                  (306, 445, 105, 92), (306, 350, 105, 92), (306, 445, 105, 92)]  #
-ANIMATION_LEFT_UP = [(456, 14, 84, 92), (456, 246, 89, 92), (456, 136, 89, 92), (456, 246, 89, 92), (456, 14, 84, 92),
-                     (456, 443, 89, 96), (456, 345, 89, 92), (456, 443, 89, 96)]  #
-ANIMATION_UP = [(620, 14, 84, 92), (622, 244, 89, 92), (622, 130, 89, 92), (622, 244, 89, 92), (620, 14, 84, 92),
-                (622, 444, 89, 92), (622, 346, 89, 92), (622, 444, 89, 92)]  #
-ANIMATION_RIGHT_UP = [(940, 14, 84, 92), (940, 246, 89, 92), (940, 136, 89, 92), (940, 246, 89, 92), (940, 14, 84, 92),
-                      (940, 443, 89, 96), (940, 345, 89, 92), (940, 443, 89, 96)]  #
-ANIMATION_RIGHT = [(1088, 17, 70, 92), (1088, 250, 105, 92), (1088, 140, 105, 92), (1088, 250, 105, 92),
-                   (1088, 17, 70, 92), (1088, 445, 105, 92), (1088, 350, 105, 92), (1088, 445, 105, 92)]
-ANIMATION_RIGHT_DOWN = [(1232, 19, 84, 92), (1232, 252, 89, 92), (1232, 140, 89, 92), (1232, 252, 89, 92),
-                        (1232, 19, 84, 92), (1232, 444, 89, 96), (1232, 344, 89, 92), (1232, 444, 89, 96)]
-# стоит
+# тестовый персонаж
+# кадры тестового персонажа (передвижение)
 
-ANIMATION_Stay_DOWN = [(33, 19, 64, 92), (33, 19, 64, 92), (33, 19, 64, 92), (33, 19, 64, 92), (33, 19, 64, 92),
-                       (33, 19, 64, 92), (33, 19, 64, 92), (33, 19, 64, 92)]
-ANIMATION_Stay_LEFT_DOWN = [(159, 20, 84, 92), (159, 20, 84, 92), (159, 20, 84, 92), (159, 20, 84, 92),
-                            (159, 20, 84, 92), (159, 20, 84, 92), (159, 20, 84, 92), (159, 20, 84, 92)]
-ANIMATION_Stay_LEFT = [(310, 17, 70, 92), (310, 17, 70, 92), (310, 17, 70, 92), (310, 17, 70, 92), (310, 17, 70, 92),
-                       (310, 17, 70, 92), (310, 17, 70, 92), (310, 17, 70, 92)]
-ANIMATION_Stay_LEFT_UP = [(456, 14, 84, 92), (456, 14, 84, 92), (456, 14, 84, 92), (456, 14, 84, 92), (456, 14, 84, 92),
-                          (456, 14, 84, 92), (456, 14, 84, 92), (456, 14, 84, 92)]
-ANIMATION_Stay_UP = [(620, 14, 84, 92), (620, 14, 84, 92), (620, 14, 84, 92), (620, 14, 84, 92), (620, 14, 84, 92),
-                     (620, 14, 84, 92), (620, 14, 84, 92), (620, 14, 84, 92)]
-ANIMATION_Stay_RIGHT_UP = [(940, 14, 84, 92), (940, 14, 84, 92), (940, 14, 84, 92), (940, 14, 84, 92),
-                           (940, 14, 84, 92), (940, 14, 84, 92), (940, 14, 84, 92), (940, 14, 84, 92)]
-ANIMATION_Stay_RIGHT = [(1088, 17, 70, 92), (1088, 17, 70, 92), (1088, 17, 70, 92), (1088, 17, 70, 92),
-                        (1088, 17, 70, 92), (1088, 17, 70, 92), (1088, 17, 70, 92), (1088, 17, 70, 92)]
-ANIMATION_Stay_RIGHT_DOWN = [(1232, 19, 84, 92), (1232, 19, 84, 92), (1232, 19, 84, 92), (1232, 19, 84, 92),
-                             (1232, 19, 84, 92), (1232, 19, 84, 92), (1232, 19, 84, 92), (1232, 19, 84, 92)]
+frame_test_1G = frame.frame_test_1G()
+frame_test_2G = frame.frame_test_2G()
+frame_test_3G = frame.frame_test_3G()
+frame_test_4G = frame.frame_test_4G()
+frame_test_5G = frame.frame_test_5G()
+frame_test_6G = frame.frame_test_6G()
+frame_test_7G = frame.frame_test_7G()
+frame_test_8G = frame.frame_test_8G()
 
-# анимация бугая
-# передвижение
-ANIMATION_Grunt_DOWN = [(32, 12, 80, 94), (32, 118, 86, 94), (32, 228, 86, 94), (32, 118, 86, 94), (32, 12, 80, 94),
-                        (32, 342, 86, 94), (32, 442, 86, 94), (32, 342, 86, 94)]
-ANIMATION_Grunt_LEFT_DOWN = [(184, 12, 80, 94), (184, 118, 86, 94), (184, 228, 86, 94), (184, 118, 86, 94),
-                             (184, 342, 86, 94), (184, 442, 88, 94), (184, 342, 86, 94)]
-ANIMATION_Grunt_LEFT = [(318, 12, 80, 94), (318, 118, 86, 94), (318, 228, 86, 94), (318, 118, 86, 94),
-                        (318, 12, 80, 94), (318, 342, 86, 94), (318, 442, 88, 94), (318, 342, 86, 94)]
-ANIMATION_Grunt_LEFT_UP = [(470, 12, 80, 94), (470, 118, 86, 94), (470, 228, 86, 94), (470, 118, 86, 94),
-                           (470, 12, 80, 94), (470, 342, 86, 94), (470, 442, 88, 94), (470, 342, 86, 94)]
-ANIMATION_Grunt_UP = [(628, 12, 80, 94), (628, 118, 86, 94), (628, 228, 86, 94), (628, 118, 86, 94), (628, 12, 80, 94),
-                      (628, 342, 86, 94), (628, 442, 88, 94), (628, 342, 86, 94)]
-ANIMATION_Grunt_RIGHT_UP = [(914, 12, 80, 94), (914, 118, 86, 94), (914, 228, 86, 94), (914, 118, 86, 94),
-                            (914, 12, 80, 94), (914, 342, 86, 94), (914, 442, 88, 94), (914, 342, 86, 94)]
-ANIMATION_Grunt_RIGHT = [(1066, 12, 88, 94), (1066, 118, 88, 94), (1066, 228, 88, 94), (1066, 118, 88, 94),
-                         (1066, 12, 88, 94), (1066, 342, 88, 94), (1066, 442, 88, 94), (1066, 342, 88, 94)]
-ANIMATION_Grunt_RIGHT_DOWN = [(1214, 12, 80, 94), (1214, 118, 86, 94), (1214, 228, 86, 94), (1214, 118, 86, 94),
-                              (1214, 12, 80, 94), (1214, 342, 86, 94), (1214, 442, 88, 94), (1214, 342, 86, 94)]
-# стоит
-ANIMATION_Grunt_Stay_DOWN = [(32, 12, 80, 94), (32, 12, 80, 94), (32, 12, 80, 94), (32, 12, 80, 94), (32, 12, 80, 94),
-                             (32, 12, 80, 94), (32, 12, 80, 94), (32, 12, 80, 94)]
-ANIMATION_Grunt_Stay_LEFT_DOWN = [(184, 12, 80, 94), (184, 12, 80, 94), (184, 12, 80, 94), (184, 12, 80, 94),
-                                  (184, 12, 80, 94), (184, 12, 80, 94), (184, 12, 80, 94), (184, 12, 80, 94)]
-ANIMATION_Grunt_Stay_LEFT = [(318, 12, 80, 94), (318, 12, 80, 94), (318, 12, 80, 94), (318, 12, 80, 94),
-                             (318, 12, 80, 94), (318, 12, 80, 94), (318, 12, 80, 94), (318, 12, 80, 94)]
-ANIMATION_Grunt_Stay_LEFT_UP = [(470, 12, 80, 94), (470, 12, 80, 94), (470, 12, 80, 94), (470, 12, 80, 94),
-                                (470, 12, 80, 94), (470, 12, 80, 94), (470, 12, 80, 94), (470, 12, 80, 94)]
-ANIMATION_Grunt_Stay_UP = [(628, 12, 80, 94), (628, 12, 80, 94), (628, 12, 80, 94), (628, 12, 80, 94),
-                           (628, 12, 80, 94), (628, 12, 80, 94), (628, 12, 80, 94), (628, 12, 80, 94)]
-ANIMATION_Grunt_Stay_RIGHT_UP = [(914, 12, 80, 94), (914, 12, 80, 94), (914, 12, 80, 94), (914, 12, 80, 94),
-                                 (914, 12, 80, 94), (914, 12, 80, 94), (914, 12, 80, 94), (914, 12, 80, 94)]
-ANIMATION_Grunt_Stay_RIGHT = [(1066, 12, 88, 94), (1066, 12, 88, 94), (1066, 12, 88, 94), (1066, 12, 88, 94),
-                              (1066, 12, 88, 94), (1066, 12, 88, 94), (1066, 12, 88, 94), (1066, 12, 88, 94)]
-ANIMATION_Grunt_Stay_RIGHT_DOWN = [(1214, 12, 80, 94), (1214, 12, 80, 94), (1214, 12, 80, 94), (1214, 12, 80, 94),
-                                   (1214, 12, 80, 94), (1214, 12, 80, 94), (1214, 12, 80, 94), (1214, 12, 80, 94)]
+# кадры тестового персонажа (стоять)
+frame_test_1S = frame.frame_test_1S()
+frame_test_2S = frame.frame_test_2S()
+frame_test_3S = frame.frame_test_3S()
+frame_test_4S = frame.frame_test_4S()
+frame_test_5S = frame.frame_test_5S()
+frame_test_6S = frame.frame_test_6S()
+frame_test_7S = frame.frame_test_7S()
+frame_test_8S = frame.frame_test_8S()
 
-# анимация для тестового героя
-# передвижение
-ANIMATION_Footmen_DOWN = [(33, 19, 64, 92), (38, 250, 64, 92), (41, 140, 64, 92), (38, 250, 64, 92), (33, 19, 64, 92),
-                          (32, 445, 64, 92), (32, 349, 66, 92), (32, 445, 64,
-                                                                 92)]
-ANIMATION_Footmen_LEFT_DOWN = [(159, 20, 84, 92), (159, 250, 89, 92), (159, 140, 89, 92), (159, 250, 89, 92),
-                               (159, 20, 84, 92), (159, 442, 89, 96), (162, 344, 89, 92), (159, 442, 89,
-                                                                                           96)]
-ANIMATION_Footmen_LEFT = [(310, 17, 70, 92), (306, 250, 105, 92), (300, 140, 105, 92), (306, 250, 105, 92),
-                          (310, 17, 70, 92), (306, 445, 105, 92), (306, 350, 105, 92), (306, 445, 105, 92)]  #
-ANIMATION_Footmen_LEFT_UP = [(456, 14, 84, 92), (456, 246, 89, 92), (456, 136, 89, 92), (456, 246, 89, 92),
-                             (456, 14, 84, 92), (456, 443, 89, 96), (456, 345, 89, 92), (456, 443, 89, 96)]  #
-ANIMATION_Footmen_UP = [(620, 14, 84, 92), (622, 244, 89, 92), (622, 130, 89, 92), (622, 244, 89, 92),
-                        (620, 14, 84, 92), (622, 444, 89, 92), (622, 346, 89, 92), (622, 444, 89, 92)]  #
-ANIMATION_Footmen_RIGHT_UP = [(940, 14, 84, 92), (940, 246, 89, 92), (940, 136, 89, 92), (940, 246, 89, 92),
-                              (940, 14, 84, 92), (940, 443, 89, 96), (940, 345, 89, 92), (940, 443, 89, 96)]  #
-ANIMATION_Footmen_RIGHT = [(1088, 17, 70, 92), (1088, 250, 105, 92), (1088, 140, 105, 92), (1088, 250, 105, 92),
-                           (1088, 17, 70, 92), (1088, 445, 105, 92), (1088, 350, 105, 92), (1088, 445, 105, 92)]
-ANIMATION_Footmen_RIGHT_DOWN = [(1232, 19, 84, 92), (1232, 252, 89, 92), (1232, 140, 89, 92), (1232, 252, 89, 92),
-                                (1232, 19, 84, 92), (1232, 444, 89, 96), (1232, 344, 89, 92), (1232, 444, 89, 96)]
-# стоит _Footmen
+# пехотинцы
+# кадры пехотинца (передвижение)
+frame_footmen_1G = frame.frame_footmen_1G()
+frame_footmen_2G = frame.frame_footmen_2G()
+frame_footmen_3G = frame.frame_footmen_3G()
+frame_footmen_4G = frame.frame_footmen_4G()
+frame_footmen_5G = frame.frame_footmen_5G()
+frame_footmen_6G = frame.frame_footmen_6G()
+frame_footmen_7G = frame.frame_footmen_7G()
+frame_footmen_8G = frame.frame_footmen_8G()
 
-ANIMATION_Footmen_Stay_DOWN = [(33, 19, 64, 92), (33, 19, 64, 92), (33, 19, 64, 92), (33, 19, 64, 92), (33, 19, 64, 92),
-                               (33, 19, 64, 92), (33, 19, 64, 92), (33, 19, 64, 92)]
-ANIMATION_Footmen_Stay_LEFT_DOWN = [(159, 20, 84, 92), (159, 20, 84, 92), (159, 20, 84, 92), (159, 20, 84, 92),
-                                    (159, 20, 84, 92), (159, 20, 84, 92), (159, 20, 84, 92), (159, 20, 84, 92)]
-ANIMATION_Footmen_Stay_LEFT = [(310, 17, 70, 92), (310, 17, 70, 92), (310, 17, 70, 92), (310, 17, 70, 92),
-                               (310, 17, 70, 92), (310, 17, 70, 92), (310, 17, 70, 92), (310, 17, 70, 92)]
-ANIMATION_Footmen_Stay_LEFT_UP = [(456, 14, 84, 92), (456, 14, 84, 92), (456, 14, 84, 92), (456, 14, 84, 92),
-                                  (456, 14, 84, 92), (456, 14, 84, 92), (456, 14, 84, 92), (456, 14, 84, 92)]
-ANIMATION_Footmen_Stay_UP = [(620, 14, 84, 92), (620, 14, 84, 92), (620, 14, 84, 92), (620, 14, 84, 92),
-                             (620, 14, 84, 92), (620, 14, 84, 92), (620, 14, 84, 92), (620, 14, 84, 92)]
-ANIMATION_Footmen_Stay_RIGHT_UP = [(940, 14, 84, 92), (940, 14, 84, 92), (940, 14, 84, 92), (940, 14, 84, 92),
-                                   (940, 14, 84, 92), (940, 14, 84, 92), (940, 14, 84, 92), (940, 14, 84, 92)]
-ANIMATION_Footmen_Stay_RIGHT = [(1088, 17, 70, 92), (1088, 17, 70, 92), (1088, 17, 70, 92), (1088, 17, 70, 92),
-                                (1088, 17, 70, 92), (1088, 17, 70, 92), (1088, 17, 70, 92), (1088, 17, 70, 92)]
-ANIMATION_Footmen_Stay_RIGHT_DOWN = [(1232, 19, 84, 92), (1232, 19, 84, 92), (1232, 19, 84, 92), (1232, 19, 84, 92),
-                                     (1232, 19, 84, 92), (1232, 19, 84, 92), (1232, 19, 84, 92), (1232, 19, 84, 92)]
-ANIMATION_Grass = [(0, 429, 32, 32)]
+# кадры пехотинца (стоять)
+frame_footmen_1S = frame.frame_footmen_1S()
+frame_footmen_2S = frame.frame_footmen_2S()
+frame_footmen_3S = frame.frame_footmen_3S()
+frame_footmen_4S = frame.frame_footmen_4S()
+frame_footmen_5S = frame.frame_footmen_5S()
+frame_footmen_6S = frame.frame_footmen_6S()
+frame_footmen_7S = frame.frame_footmen_7S()
+frame_footmen_8S = frame.frame_footmen_8S()
+
+# Бугай
+# пехотинцы
+# кадры пехотинца (передвижение)
+frame_grunt_1G = frame.frame_grunt_1G()
+frame_grunt_2G = frame.frame_grunt_2G()
+frame_grunt_3G = frame.frame_grunt_3G()
+frame_grunt_4G = frame.frame_grunt_4G()
+frame_grunt_5G = frame.frame_grunt_5G()
+frame_grunt_6G = frame.frame_grunt_6G()
+frame_grunt_7G = frame.frame_grunt_7G()
+frame_grunt_8G = frame.frame_grunt_8G()
+
+# кадры пехотинца (стоять)
+frame_grunt_1S = frame.frame_grunt_1S()
+frame_grunt_2S = frame.frame_grunt_2S()
+frame_grunt_3S = frame.frame_grunt_3S()
+frame_grunt_4S = frame.frame_grunt_4S()
+frame_grunt_5S = frame.frame_grunt_5S()
+frame_grunt_6S = frame.frame_grunt_6S()
+frame_grunt_7S = frame.frame_grunt_7S()
+frame_grunt_8S = frame.frame_grunt_8S()
+
+# травушка - муравушка
+frame_grass = frame.frame_grass()
 
 ICON_DIR = os.path.dirname(__file__)  # Полный путь к каталогу с файлами
 
 
-# как организовать функцию для переложения анимации
 class Animation(object):
     def __init__(self):
-
+        #параметры для передачи кадров
         self.time = 180
         self.work_time = 0
         self.skip_frame = 0
         self.frame = 0
 
         self.sprite_test = image.load('%s/picter/Footmen.png' % ICON_DIR)
-        self.sprite_Footman = image.load('%s/picter/Footmen.png' % ICON_DIR)
-        self.sprite_Grunt = image.load('%s/picter/Grunt.png' % ICON_DIR)
-        self.sprite_Grass = image.load('%s/picter/TerraTiles.png' % ICON_DIR)
+        self.sprite_footmen = image.load('%s/picter/Footmen.png' % ICON_DIR)
+        self.sprite_grunt = image.load('%s/picter/Grunt.png' % ICON_DIR)
+        self.sprite_grass = image.load('%s/picter/TerraTiles.png' % ICON_DIR)
 
-        self.amim_grass = animation1(ANIMATION_Grass, self.sprite_Grass.subsurface)
+        self.amim_grass = list_frame(frame_grass, self.sprite_grass.subsurface)
 
-        # блок для анимации тестоого героя
-        # передвижение
-        # anim = []
-        # for frame in ANIMATION_DOWN:
-        #     anim.append(self.sprite_test.subsurface(frame))
-        # self.anim_test_down = anim
-        self.anim_test_down = animation1(ANIMATION_DOWN, self.sprite_test.subsurface)
+        # тестовый
+        # анимация тестового героя (передвижение)
+        self.anim_test_1G = list_frame(frame_test_1G, self.sprite_test.subsurface)
+        self.anim_test_2G = list_frame(frame_test_2G, self.sprite_test.subsurface)
+        self.anim_test_3G = list_frame(frame_test_3G, self.sprite_test.subsurface)
+        self.anim_test_4G = list_frame(frame_test_4G, self.sprite_test.subsurface)
+        self.anim_test_5G = list_frame(frame_test_5G, self.sprite_test.subsurface)
+        self.anim_test_6G = list_frame(frame_test_6G, self.sprite_test.subsurface)
+        self.anim_test_7G = list_frame(frame_test_7G, self.sprite_test.subsurface)
+        self.anim_test_8G = list_frame(frame_test_8G, self.sprite_test.subsurface)
+        # анимация тестового героя (стоять)
+        self.anim_test_1S = list_frame(frame_test_1S, self.sprite_test.subsurface)
+        self.anim_test_2S = list_frame(frame_test_2S, self.sprite_test.subsurface)
+        self.anim_test_3S = list_frame(frame_test_3S, self.sprite_test.subsurface)
+        self.anim_test_4S = list_frame(frame_test_4S, self.sprite_test.subsurface)
+        self.anim_test_5S = list_frame(frame_test_5S, self.sprite_test.subsurface)
+        self.anim_test_6S = list_frame(frame_test_6S, self.sprite_test.subsurface)
+        self.anim_test_7S = list_frame(frame_test_7S, self.sprite_test.subsurface)
+        self.anim_test_8S = list_frame(frame_test_8S, self.sprite_test.subsurface)
 
-        anim = []
-        for frame in ANIMATION_LEFT:
-            anim.append(self.sprite_test.subsurface(frame))
-        self.anim_test_left = anim
+        # Пехотинец
+        # анимация пехотинцы (передвижение)
+        self.anim_footmen_1G = list_frame(frame_footmen_1G, self.sprite_footmen.subsurface)
+        self.anim_footmen_2G = list_frame(frame_footmen_2G, self.sprite_footmen.subsurface)
+        self.anim_footmen_3G = list_frame(frame_footmen_3G, self.sprite_footmen.subsurface)
+        self.anim_footmen_4G = list_frame(frame_footmen_4G, self.sprite_footmen.subsurface)
+        self.anim_footmen_5G = list_frame(frame_footmen_5G, self.sprite_footmen.subsurface)
+        self.anim_footmen_6G = list_frame(frame_footmen_6G, self.sprite_footmen.subsurface)
+        self.anim_footmen_7G = list_frame(frame_footmen_7G, self.sprite_footmen.subsurface)
+        self.anim_footmen_8G = list_frame(frame_footmen_8G, self.sprite_footmen.subsurface)
+        # анимация пехотинца (стоять)
+        self.anim_footmen_1S = list_frame(frame_footmen_1S, self.sprite_footmen.subsurface)
+        self.anim_footmen_2S = list_frame(frame_footmen_2S, self.sprite_footmen.subsurface)
+        self.anim_footmen_3S = list_frame(frame_footmen_3S, self.sprite_footmen.subsurface)
+        self.anim_footmen_4S = list_frame(frame_footmen_4S, self.sprite_footmen.subsurface)
+        self.anim_footmen_5S = list_frame(frame_footmen_5S, self.sprite_footmen.subsurface)
+        self.anim_footmen_6S = list_frame(frame_footmen_6S, self.sprite_footmen.subsurface)
+        self.anim_footmen_7S = list_frame(frame_footmen_7S, self.sprite_footmen.subsurface)
+        self.anim_footmen_8S = list_frame(frame_footmen_8S, self.sprite_footmen.subsurface)
 
-        anim = []
-        for frame in ANIMATION_LEFT_DOWN:
-            anim.append(self.sprite_test.subsurface(frame))
-        self.anim_test_left_down = anim
 
-        anim = []
-        for frame in ANIMATION_LEFT_UP:
-            anim.append(self.sprite_test.subsurface(frame))
-        self.anim_test_left_up = anim
 
-        anim = []
-        for frame in ANIMATION_RIGHT:
-            anim.append(self.sprite_test.subsurface(frame))
-        self.anim_test_right = anim
 
-        anim = []
-        for frame in ANIMATION_RIGHT_DOWN:
-            anim.append(self.sprite_test.subsurface(frame))
-        self.anim_test_right_down = anim
 
-        anim = []
-        for frame in ANIMATION_RIGHT_UP:
-            anim.append(self.sprite_test.subsurface(frame))
-        self.anim_test_right_up = anim
+        #Бугай
+        # анимация тестового героя (передвижение)
+        self.anim_grunt_1G = list_frame(frame_test_1G, self.sprite_grunt.subsurface)
+        self.anim_grunt_2G = list_frame(frame_test_2G, self.sprite_grunt.subsurface)
+        self.anim_grunt_3G = list_frame(frame_test_3G, self.sprite_grunt.subsurface)
+        self.anim_grunt_4G = list_frame(frame_test_4G, self.sprite_grunt.subsurface)
+        self.anim_grunt_5G = list_frame(frame_test_5G, self.sprite_grunt.subsurface)
+        self.anim_grunt_6G = list_frame(frame_test_6G, self.sprite_grunt.subsurface)
+        self.anim_grunt_7G = list_frame(frame_test_7G, self.sprite_grunt.subsurface)
+        self.anim_grunt_8G = list_frame(frame_test_8G, self.sprite_grunt.subsurface)
+        # анимация тестового героя (стоять)
+        self.anim_grunt_1S = list_frame(frame_test_1S, self.sprite_grunt.subsurface)
+        self.anim_grunt_2S = list_frame(frame_test_2S, self.sprite_grunt.subsurface)
+        self.anim_grunt_3S = list_frame(frame_test_3S, self.sprite_grunt.subsurface)
+        self.anim_grunt_4S = list_frame(frame_test_4S, self.sprite_grunt.subsurface)
+        self.anim_grunt_5S = list_frame(frame_test_5S, self.sprite_grunt.subsurface)
+        self.anim_grunt_6S = list_frame(frame_test_6S, self.sprite_grunt.subsurface)
+        self.anim_grunt_7S = list_frame(frame_test_7S, self.sprite_grunt.subsurface)
+        self.anim_grunt_8S = list_frame(frame_test_8S, self.sprite_grunt.subsurface)
 
-        anim = []
-        for frame in ANIMATION_UP:
-            anim.append(self.sprite_test.subsurface(frame))
-        self.anim_test_up = anim
-
-        # стоять
-        anim = []
-        for frame in ANIMATION_Stay_DOWN:
-            anim.append(self.sprite_test.subsurface(frame))
-        self.anim_test_stay_down = anim
-
-        anim = []
-        for frame in ANIMATION_Stay_LEFT:
-            anim.append(self.sprite_test.subsurface(frame))
-        self.anim_test_stay_left = anim
-
-        anim = []
-        for frame in ANIMATION_Stay_LEFT_DOWN:
-            anim.append(self.sprite_test.subsurface(frame))
-        self.anim_test_stay_left_down = anim
-
-        anim = []
-        for frame in ANIMATION_Stay_LEFT_UP:
-            anim.append(self.sprite_test.subsurface(frame))
-        self.anim_test_stay_left_up = anim
-
-        anim = []
-        for frame in ANIMATION_Stay_RIGHT:
-            anim.append(self.sprite_test.subsurface(frame))
-        self.anim_test_stay_right = anim
-
-        anim = []
-        for frame in ANIMATION_Stay_RIGHT_DOWN:
-            anim.append(self.sprite_test.subsurface(frame))
-        self.anim_test_stay_right_down = anim
-
-        anim = []
-        for frame in ANIMATION_Stay_RIGHT_UP:
-            anim.append(self.sprite_test.subsurface(frame))
-        self.anim_test_stay_right_up = anim
-
-        anim = []
-        for frame in ANIMATION_Stay_UP:
-            anim.append(self.sprite_test.subsurface(frame))
-        self.anim_test_stay_up = anim
-
-        # Анимация пехотинка
-        # Передвжение
-        anim = []
-        for frame in ANIMATION_Footmen_DOWN:
-            anim.append(self.sprite_Footman.subsurface(frame))
-        self.anim_footmen_down = anim
-
-        anim = []
-        for frame in ANIMATION_Footmen_LEFT:
-            anim.append(self.sprite_Footman.subsurface(frame))
-        self.anim_footmen_left = anim
-
-        anim = []
-        for frame in ANIMATION_Footmen_LEFT_DOWN:
-            anim.append(self.sprite_Footman.subsurface(frame))
-        self.anim_footmen_left_down = anim
-
-        anim = []
-        for frame in ANIMATION_Footmen_LEFT_UP:
-            anim.append(self.sprite_Footman.subsurface(frame))
-        self.anim_footmen_left_up = anim
-
-        anim = []
-        for frame in ANIMATION_Footmen_RIGHT:
-            anim.append(self.sprite_Footman.subsurface(frame))
-        self.anim_footmen_right = anim
-
-        anim = []
-        for frame in ANIMATION_Footmen_RIGHT_DOWN:
-            anim.append(self.sprite_Footman.subsurface(frame))
-        self.anim_footmen_right_down = anim
-
-        anim = []
-        for frame in ANIMATION_Footmen_RIGHT_UP:
-            anim.append(self.sprite_Footman.subsurface(frame))
-        self.anim_footmen_right_up = anim
-
-        anim = []
-        for frame in ANIMATION_Footmen_UP:
-            anim.append(self.sprite_Footman.subsurface(frame))
-        self.anim_footmen_up = anim
-
-        # стоять
-        anim = []
-        for frame in ANIMATION_Footmen_Stay_DOWN:
-            anim.append(self.sprite_Footman.subsurface(frame))
-        self.anim_footmen_stay_down = anim
-
-        anim = []
-        for frame in ANIMATION_Footmen_Stay_LEFT:
-            anim.append(self.sprite_Footman.subsurface(frame))
-        self.anim_footmen_stay_left = anim
-
-        anim = []
-        for frame in ANIMATION_Footmen_Stay_LEFT_DOWN:
-            anim.append(self.sprite_Footman.subsurface(frame))
-        self.anim_footmen_stay_left_down = anim
-
-        anim = []
-        for frame in ANIMATION_Footmen_Stay_LEFT_UP:
-            anim.append(self.sprite_Footman.subsurface(frame))
-        self.anim_footmen_stay_left_up = anim
-
-        anim = []
-        for frame in ANIMATION_Footmen_Stay_RIGHT:
-            anim.append(self.sprite_Footman.subsurface(frame))
-        self.anim_footmen_stay_right = anim
-
-        anim = []
-        for frame in ANIMATION_Footmen_Stay_RIGHT_DOWN:
-            anim.append(self.sprite_Footman.subsurface(frame))
-        self.anim_footmen_stay_right_down = anim
-
-        anim = []
-        for frame in ANIMATION_Footmen_Stay_RIGHT_UP:
-            anim.append(self.sprite_Footman.subsurface(frame))
-        self.anim_footmen_stay_right_up = anim
-
-        anim = []
-        for frame in ANIMATION_Footmen_Stay_UP:
-            anim.append(self.sprite_Footman.subsurface(frame))
-        self.anim_footmen_stay_up = anim
-
-        # анимация бугая
-
-        # передвижение
-        anim = []
-        for frame in ANIMATION_Grunt_DOWN:
-            anim.append(self.sprite_Grunt.subsurface(frame))
-        self.anim_grunt_down = anim
-
-        anim = []
-        for frame in ANIMATION_Grunt_LEFT:
-            anim.append(self.sprite_Grunt.subsurface(frame))
-        self.anim_grunt_left = anim
-
-        anim = []
-        for frame in ANIMATION_Grunt_LEFT_DOWN:
-            anim.append(self.sprite_Grunt.subsurface(frame))
-        self.anim_grunt_left_down = anim
-
-        anim = []
-        for frame in ANIMATION_Grunt_LEFT_UP:
-            anim.append(self.sprite_Grunt.subsurface(frame))
-        self.anim_grunt_left_up = anim
-
-        anim = []
-        for frame in ANIMATION_Grunt_RIGHT:
-            anim.append(self.sprite_Grunt.subsurface(frame))
-        self.anim_grunt_right = anim
-
-        anim = []
-        for frame in ANIMATION_Grunt_RIGHT_DOWN:
-            anim.append(self.sprite_Grunt.subsurface(frame))
-        self.anim_grunt_right_down = anim
-
-        anim = []
-        for frame in ANIMATION_Grunt_RIGHT_UP:
-            anim.append(self.sprite_Grunt.subsurface(frame))
-        self.anim_grunt_right_up = anim
-
-        anim = []
-        for frame in ANIMATION_Grunt_UP:
-            anim.append(self.sprite_Grunt.subsurface(frame))
-        self.anim_grunt_up = anim
-
-        # стоять
-        anim = []
-        for frame in ANIMATION_Grunt_Stay_DOWN:
-            anim.append(self.sprite_Grunt.subsurface(frame))
-        self.anim_grunt_stay_down = anim
-
-        anim = []
-        for frame in ANIMATION_Grunt_Stay_LEFT:
-            anim.append(self.sprite_Grunt.subsurface(frame))
-        self.anim_grunt_stay_left = anim
-
-        anim = []
-        for frame in ANIMATION_Grunt_Stay_LEFT_DOWN:
-            anim.append(self.sprite_Grunt.subsurface(frame))
-        self.anim_grunt_stay_left_down = anim
-
-        anim = []
-        for frame in ANIMATION_Grunt_Stay_LEFT_UP:
-            anim.append(self.sprite_Grunt.subsurface(frame))
-        self.anim_grunt_stay_left_up = anim
-
-        anim = []
-        for frame in ANIMATION_Grunt_Stay_RIGHT:
-            anim.append(self.sprite_Grunt.subsurface(frame))
-        self.anim_grunt_stay_right = anim
-
-        anim = []
-        for frame in ANIMATION_Grunt_Stay_RIGHT_DOWN:
-            anim.append(self.sprite_Grunt.subsurface(frame))
-        self.anim_grunt_stay_right_down = anim
-
-        anim = []
-        for frame in ANIMATION_Grunt_Stay_RIGHT_UP:
-            anim.append(self.sprite_Grunt.subsurface(frame))
-        self.anim_grunt_stay_right_up = anim
-
-        anim = []
-        for frame in ANIMATION_Grunt_Stay_UP:
-            anim.append(self.sprite_Grunt.subsurface(frame))
-        self.anim_grunt_stay_up = anim

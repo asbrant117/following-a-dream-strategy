@@ -20,8 +20,8 @@ def run_game():
     # объект анимации и загрузок
     animation = Animation()
 
-    # ооздаем фон
-    background(setting)
+    # ооздаем фон,травы, объектов, всего статичного в игре
+    #background(setting)
 
     # параметры экрана
     screen = pygame.display.set_mode((setting.screen_width, setting.screen_height))  # экран , pygame.FULLSCREEN

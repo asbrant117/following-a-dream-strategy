@@ -102,21 +102,21 @@ class Test(pygame.sprite.Sprite, animation.Animation):
     # оторажение
     def blit_test(self):
         if self.direction == 'right':
-            self.image = self.animation.anim_test_right
+            self.image = self.animation.anim_test_3G
         if self.direction == 'left':
-            self.image = self.animation.anim_test_left
+            self.image = self.animation.anim_test_7G
         if self.direction == 'up':
-            self.image = self.animation.anim_test_up
+            self.image = self.animation.anim_test_1G
         if self.direction == 'down':
-            self.image = self.animation.anim_test_down
+            self.image = self.animation.anim_test_5G
         if self.direction == 'left_down':
-            self.image = self.animation.anim_test_left_down
+            self.image = self.animation.anim_test_6G
         if self.direction == 'left_up':
-            self.image = self.animation.anim_test_left_up
+            self.image = self.animation.anim_test_8G
         if self.direction == 'right_down':
-            self.image = self.animation.anim_test_right_down
+            self.image = self.animation.anim_test_4G
         if self.direction == 'right_up':
-            self.image = self.animation.anim_test_right_up
+            self.image = self.animation.anim_test_2G
         if self.direction == 'stay_down':
             self.image = self.animation.anim_footmen_stay_down
 
