@@ -2,11 +2,11 @@ import pygame
 
 import display
 import events
-from background import background
+from background_create import background
 from camere import Camera
 from settings import Settings
-from test_character import Test
-from animation import Animation
+from character_test import Test
+from character_animation import Animation
 
 def run_game():
     pygame.init()
@@ -21,7 +21,7 @@ def run_game():
     animation = Animation()
 
     # ооздаем фон,травы, объектов, всего статичного в игре
-    #background(setting)
+    background(setting)
 
     # параметры экрана
     screen = pygame.display.set_mode((setting.screen_width, setting.screen_height))  # экран , pygame.FULLSCREEN

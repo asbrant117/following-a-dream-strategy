@@ -1,10 +1,10 @@
 import pygame
 from pygame import *
 
-import animation
+import character_animation
 
 
-class Test(pygame.sprite.Sprite, animation.Animation):
+class Test(pygame.sprite.Sprite, character_animation.Animation):
     def __init__(self, setting, screen, animation):
         pygame.sprite.Sprite.__init__(self)
         # инициализируем настройки и поверхность

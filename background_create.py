@@ -2,8 +2,8 @@ import os
 
 import pygame
 
-from background_lvl import lvl
-from terra_tiles import Terra_Tiles
+from map_lvl import lvl
+from background_tiles_beck import Terra_Tiles
 
 
 def background(setting):
@@ -11,8 +11,8 @@ def background(setting):
     # временно!!!!
     level = lvl()
 
-    screen_save = pygame.display.set_mode((5000, 5000))
-
+    screen_save = pygame.display.set_mode((3264, 4512))
+    x1 = y1 = 0
     x = y = 0
     tiles = []
     for row in level:  # строка
