@@ -126,13 +126,7 @@ class Test(pygame.sprite.Sprite, character_animation.Animation):
         #      self.image = self.animation_test_stay_left
         #  if self.direction == 'stay_right':
         #      self.image = self.animation_test_stay_right
-        #  if self.direction == 'stay_up':
-        #      self.image = self.animation_test_stay_up
-
-        self.screen.blit(self.image[int(self.animation.frame)], self.rect)
-
-        if self.health >= 70:
-            self.health_colour = self.setting.health_colour_full
+        # N_colour = self.setting.health_colour_full
         if self.health < 70 and self.health >= 30:
             self.health_colour = self.setting.health_colour_medium
         if self.health < 30:
