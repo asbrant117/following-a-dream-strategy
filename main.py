@@ -10,7 +10,7 @@ from character_animation import Animation
 
 def run_game():
     pygame.init()
-
+    #!!!!!!!
     # создаем время для раскадровки
     dt = 0
     clock = pygame.time.Clock()
