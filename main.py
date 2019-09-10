@@ -5,12 +5,13 @@ import events
 from background_create import background
 from camere import Camera
 from settings import Settings
-from character_test import Test
+from character_class_test import Test
 from character_animation import Animation
+from background_class_full import Beckground_full
 
 def run_game():
     pygame.init()
-    #!!!!!!!
+
     # создаем время для раскадровки
     dt = 0
     clock = pygame.time.Clock()
@@ -20,8 +21,8 @@ def run_game():
     # объект анимации и загрузок
     animation = Animation()
 
-    # ооздаем фон,травы, объектов, всего статичного в игре
-    background(setting)
+    #  ооздаем фон,травы, объектов, всего статичного в игре
+    tiles_tree = background(setting)
 
     # параметры экрана
     screen = pygame.display.set_mode((setting.screen_width, setting.screen_height))  # экран , pygame.FULLSCREEN
@@ -35,7 +36,9 @@ def run_game():
     test = Test(setting, screen,animation)
     # создаем список для класса
     characters = []
-    # character = Character (setting,screen)
+    #создаем фон
+    background_full = Beckground_full(setting, screen)
+
 
     # создаем камеру
     camera = Camera(setting)
@@ -47,10 +50,10 @@ def run_game():
 
         # столкновения
         # test.collide_test(test,characters)
-        test.collide_test(characters)
+        test.collide_test(characters,tiles_tree)
 
         # отображение
-        display.update_screen(setting, screen, test, characters)
+        display.update_screen(setting, screen, test, characters,background_full)
 
         test.update_test(dt)
         camera.move(characters, test)
@@ -62,3 +65,4 @@ def run_game():
 
 
 run_game()
+

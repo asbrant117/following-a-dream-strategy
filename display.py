@@ -1,10 +1,13 @@
 import pygame
 
 
-def update_screen(setting, screen, test, characters):
+def update_screen(setting, screen, test, characters, background_full):
     # перерисовка
     # экран
     screen.fill(setting.screen_color)
+
+    # фон
+    background_full.blit_background_full()
 
     # тестовый героий
     test.blit_test()

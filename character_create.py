@@ -1,6 +1,6 @@
 import random
 
-from character import Character
+from character_class import Character
 
 
 # создаем по определенным критериям персонажий и добавляем в группу

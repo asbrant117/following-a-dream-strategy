@@ -13,11 +13,13 @@ class Character(pygame.sprite.Sprite):
 
 
         # изображение героя и выделенный прямоугольник
-        self.rect = pygame.Rect(x, y, 54, 64)
+        self.rect = pygame.Rect(x, y, self.setting.value[2][1], self.setting.value[2][2])
 
         # координаты расположения
         self.rect.x = x + camera_x
         self.rect.y = y + camera_y
+
+
         # self.x = x
         # self.y = y
 
@@ -30,7 +32,7 @@ class Character(pygame.sprite.Sprite):
         # команда
         self.command = command
         # жизнь персонажа
-        self.health = health
+        self.health = self.setting.value[2][5]
         self.health_colour = self.setting.health_colour_full
 
     # Функция помогающая отслеживать перемещение
@@ -76,7 +78,8 @@ class Character(pygame.sprite.Sprite):
             #  if self.direction == 'stay_up':
             #      self.image = self.animation_test_stay_up
 
-            self.screen.blit(self.image[int(self.animation.frame)], self.rect)
+            #self.screen.blit(self.image[int(self.animation.frame)], self.rect)
+            pygame.draw.rect(self.screen,(255, 255, 0),self.rect)
 
             if self.health >= 70:
                 self.health_colour = self.setting.health_colour_full
@@ -86,5 +89,7 @@ class Character(pygame.sprite.Sprite):
                 self.health_colour = self.setting.health_colour_low
 
             # отображение жизни юнита
-            pygame.draw.rect(self.screen, self.health_colour, ((self.rect.x - 10), (self.rect.y + 100), 100, 8))
+            pygame.draw.rect(self.screen, self.health_colour,
+                             (self.rect.x - abs((self.setting.value[2][1] - self.setting.value[2][6])) / 2,
+                              (self.rect.y + self.setting.value[2][2] + 10), 100, 8))
             pygame.draw.rect(self.screen, (0, 0, 0), ((self.rect.x - 11), (self.rect.y + 98), 102, 10), 1)

@@ -2,8 +2,8 @@ class Settings():
     # класс для хранения всех настроик игры
     def __init__(self):
         # параметры экрана
-        self.screen_width = 800  # 1600
-        self.screen_height = 600  # 900
+        self.screen_width = 1200  # 1600
+        self.screen_height = 900  # 900
         self.screen_color = (230, 230, 230)
 
         # параметры времени
@@ -26,11 +26,12 @@ class Settings():
         self.health_colour_low = (255, 0, 0)
 
         # параметры character
-        self.test_speed = 4
-        self.test_speed_2 = 2
-        self.test_x = 0
-        self.test_y = 0
-        self.test_health = 100
+        # параметры footmen
+        self.footmen_speed = 4
+        self.footmen_speed_2 = 2
+        self.footmen_x = 0
+        self.footmen_y = 0
+        self.footmen_health = 100
 
         # параметры камеры
         self.camera_speed = 10
@@ -38,3 +39,10 @@ class Settings():
         # параметры поля травы
         self.tile_width = 32
         self.tile_length = 32
+
+        self.value = [['name', 'ширина', 'высота', 'скорость', 'скоростьДИАГ', 'здоровье','ширинаЗДОР',''],
+                      ['test       ', 55, 70, 8, 3, 30,100],
+                      ['footmen    ', 55, 70, 8, 3, 100,100],
+                      ['grunt      ', 1, 100, 100, 10, 100,100]]
+
+        self.value_healf = [['']]
