@@ -15,7 +15,7 @@ def create_characters(setting, screen, characters, camera,animation):
         # if (x < (hero.rect.x - 150) or x > (hero.rect.x + 150)) or \
         #        (y < (hero.rect.y - 150) or y > (hero.rect.y + 150)):
         # создание персонажа
-        character = Character(setting, screen,animation, x=x, y=y, view='footmen', command=1, health=100, camera_x=camera.x,
+        character = Character(setting, screen,animation, x=x, y=y, view='footmen', command=1, camera_x=camera.x,
                               camera_y=camera.y)
 
         characters.append(character)

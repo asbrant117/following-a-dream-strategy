@@ -4,7 +4,7 @@ import character_animation
 
 
 class Character(pygame.sprite.Sprite):
-    def __init__(self, setting, screen, animation, view, command, health, x, y, camera_x, camera_y):
+    def __init__(self, setting, screen, animation, view, command, x, y, camera_x, camera_y):
         pygame.sprite.Sprite.__init__(self)
         # инициализирует героя и поверхность
         self.screen = screen
@@ -78,8 +78,9 @@ class Character(pygame.sprite.Sprite):
             #  if self.direction == 'stay_up':
             #      self.image = self.animation_test_stay_up
 
-            #self.screen.blit(self.image[int(self.animation.frame)], self.rect)
             pygame.draw.rect(self.screen,(255, 255, 0),self.rect)
+            # self.screen.blit(self.image[int(self.animation.frame)], self.rect)
+
 
             if self.health >= 70:
                 self.health_colour = self.setting.health_colour_full
