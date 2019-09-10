@@ -1,4 +1,4 @@
-class Settings():
+class Settings(object):
     # класс для хранения всех настроик игры
     def __init__(self):
         # параметры экрана

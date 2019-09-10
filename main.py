@@ -36,6 +36,7 @@ def run_game():
     test = Test(setting, screen,animation)
     # создаем список для класса
     characters = []
+    healths = []
     #создаем фон
     background_full = Beckground_full(setting, screen)
 
@@ -46,14 +47,14 @@ def run_game():
     # основной цикл
     while True:
         # события
-        events.check_events(test, setting, screen, characters, camera,animation)
+        events.check_events(test, setting, screen, characters, camera,animation,healths)
 
         # столкновения
         # test.collide_test(test,characters)
         test.collide_test(characters,tiles_tree)
 
         # отображение
-        display.update_screen(setting, screen, test, characters,background_full)
+        display.update_screen(setting, screen, test, characters,background_full,healths)
 
         test.update_test(dt)
         camera.move(characters, test)
