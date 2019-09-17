@@ -89,8 +89,8 @@ class Character(pygame.sprite.Sprite):
             if self.health < 30:
                 self.health_colour = self.setting.health_colour_low
 
-            # отображение жизни юнита
-            pygame.draw.rect(self.screen, self.health_colour,
-                             (self.rect.x - abs((self.setting.value[2][1] - self.setting.value[2][6])) / 2,
-                              (self.rect.y + self.setting.value[2][2] + 10), 100, 8))
+            # # отображение жизни юнита
+            # pygame.draw.rect(self.screen, self.health_colour,
+            #                  (self.rect.x - abs((self.setting.value[2][1] - self.setting.value[2][6])) / 2,
+            #                   (self.rect.y + self.setting.value[2][2] + 10), 100, 8))
             pygame.draw.rect(self.screen, (0, 0, 0), ((self.rect.x - 11), (self.rect.y + 98), 102, 10), 1)

@@ -1,7 +1,7 @@
 import pygame
 
 
-def update_screen(setting, screen, test, characters, background_full):
+def update_screen(setting, screen, test, characters, background_full,healths):
     # перерисовка
     # экран
     screen.fill(setting.screen_color)
@@ -14,6 +14,8 @@ def update_screen(setting, screen, test, characters, background_full):
     # персонажи
     for character in characters:
         character.blit_character()
+    for health in healths:
+        health.blit_Health()
 
     # отображение последнего прорисованного экрана
     pygame.display.flip()

@@ -1,10 +1,11 @@
 import random
 
 from character_class import Character
+from character_class_health import Health
 
 
 # создаем по определенным критериям персонажий и добавляем в группу
-def create_characters(setting, screen, characters, camera,animation):
+def create_characters(setting, screen, characters, camera,animation,healths):
     # создание персонажа в определенных координатах
     while True:
         # рандомная выборка
@@ -19,8 +20,12 @@ def create_characters(setting, screen, characters, camera,animation):
                               camera_y=camera.y)
 
         characters.append(character)
-        print(len(characters))
-        return characters
+
+        health = Health(setting,screen,character)
+
+        healths.append(health)
+
+        return characters,healths
 
         # проверка на пересечение с другими персонажами
         # if not pygame.sprite.spritecollideany(character, characters):
