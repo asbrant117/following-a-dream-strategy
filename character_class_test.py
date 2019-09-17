@@ -76,7 +76,7 @@ class Test(pygame.sprite.Sprite, character_animation.Animation):
             if self.animation.frame >= len(self.image):
                 self.animation.frame = 0
 
-    def collide_test(self, chatacters, tiles_tree):
+    def collide_test(self, chatacters, tiles):
         for chatacter in chatacters:
             if sprite.collide_rect(self, chatacter):
                 print(1)
@@ -103,28 +103,28 @@ class Test(pygame.sprite.Sprite, character_animation.Animation):
             else:
                 self.collision = 'no'
 
-        for tile_tree in tiles_tree:
-            if sprite.collide_rect(self, tile_tree):
+        for tile in tiles:
+            if sprite.collide_rect(self, tile):
                 print(1)
-                if self.rect.right >= tile_tree.rect.left - self.setting.value[1][
-                    3] and self.rect.right <= tile_tree.rect.left + self.setting.value[1][
-                    3] and self.rect.bottom >= tile_tree.rect.top:
-                    self.rect.right = tile_tree.rect.left
+                if self.rect.right >= tile.rect.left - self.setting.value[1][
+                    3] and self.rect.right <= tile.rect.left + self.setting.value[1][
+                    3] and self.rect.bottom >= tile.rect.top:
+                    self.rect.right = tile.rect.left
                     # self.collision = 'right'
 
-                if self.rect.left >= tile_tree.rect.right - self.setting.value[1][
-                    3] and self.rect.left <= tile_tree.rect.right + self.setting.value[1][3]:
-                    self.rect.left = tile_tree.rect.right
+                if self.rect.left >= tile.rect.right - self.setting.value[1][
+                    3] and self.rect.left <= tile.rect.right + self.setting.value[1][3]:
+                    self.rect.left = tile.rect.right
                     # self.collision = 'left'
 
-                if self.rect.bottom >= tile_tree.rect.top - self.setting.value[1][
-                    3] and self.rect.bottom <= tile_tree.rect.top + self.setting.value[1][3]:
-                    self.rect.bottom = tile_tree.rect.top
+                if self.rect.bottom >= tile.rect.top - self.setting.value[1][
+                    3] and self.rect.bottom <= tile.rect.top + self.setting.value[1][3]:
+                    self.rect.bottom = tile.rect.top
                 # self.collision = 'bottom'
 
-                if self.rect.top >= tile_tree.rect.bottom - self.setting.value[1][
-                    3] and self.rect.top <= tile_tree.rect.bottom + 4:
-                    self.rect.top = tile_tree.rect.bottom
+                if self.rect.top >= tile.rect.bottom - self.setting.value[1][
+                    3] and self.rect.top <= tile.rect.bottom + 4:
+                    self.rect.top = tile.rect.bottom
                     # self.collision = 'bottom'
             else:
                 self.collision = 'no'

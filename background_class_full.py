@@ -16,7 +16,7 @@ class Beckground_full(pygame.sprite.Sprite):
         self.screen = screen
         self.setting = setting
 
-        self.rect = pygame.Rect(0, 0, 3000, 3000)
+        self.rect = pygame.Rect(0, 0, 3500, 3500)
         self.image = picture
 
         self.rect.x = 0

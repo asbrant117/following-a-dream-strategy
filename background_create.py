@@ -6,13 +6,11 @@ from background_map_lvl import lvl
 from background_class import Terra_Tiles
 
 
-def background(setting):
-    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    # временно!!!!
+def background(setting,background_animation):
+
     level = lvl()
 
     screen_save = pygame.display.set_mode((3264, 4512))
-    x1 = y1 = 0
     x = y = 0
     tiles = []
     tiles_tree = []
@@ -20,11 +18,11 @@ def background(setting):
         for col in row:  # часть строки
             if col == '-':
                 view = 'grass'
-                tile = Terra_Tiles(setting, screen_save, x=x, y=y, view=view)
+                tile = Terra_Tiles(setting, screen_save,background_animation, x=x, y=y, view=view)
                 tiles.append(tile)
             if col == '1':
                 view = 'tree'
-                tile = Terra_Tiles(setting, screen_save, x=x, y=y, view=view)
+                tile = Terra_Tiles(setting, screen_save,background_animation, x=x, y=y, view=view)
                 tiles_tree.append(tile)
             x += 32
         y += 32
