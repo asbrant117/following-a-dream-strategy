@@ -40,16 +40,16 @@ class Test(pygame.sprite.Sprite, character_animation.Animation):
     def update_test(self, dt):
 
         if self.direction == 'right' and self.collision != 'right':
-            self.rect.x += self.setting.value[1][4]
+            self.rect.x += self.setting.value[1][3]
 
         if self.direction == 'left' and self.collision != 'left':
-            self.rect.x -= self.setting.value[1][4]
+            self.rect.x -= self.setting.value[1][3]
 
         if self.direction == 'up' and self.collision != 'top':
-            self.rect.y -= self.setting.value[1][4]
+            self.rect.y -= self.setting.value[1][3]
 
         if self.direction == 'down' and self.collision != 'bottom':
-            self.rect.y += self.setting.value[1][4]
+            self.rect.y += self.setting.value[1][3]
 
         if self.direction == 'right_up' and self.collision != 'right' and self.collision != 'top':
             self.rect.x += self.setting.value[1][4]
@@ -128,29 +128,6 @@ class Test(pygame.sprite.Sprite, character_animation.Animation):
                     # self.collision = 'bottom'
             else:
                 self.collision = 'no'
-            #     self.rect.right = chatacter.rect.left
-            #     self.collision = 'left'
-            #     print('!!!!!!!!!!1')
-
-            # for chatacter in chatacters:
-            #     if sprite.collide_rect(self, chatacter):
-            #         if self.rect.x + 40 < chatacter.rect.x:
-            #             self.collision = 'right'
-            #         if self.rect.x > chatacter.rect.x + 40:
-            #             self.collision = 'left'
-            #         if self.rect.y + 50 < chatacter.rect.y:
-            #             self.collision = 'bottom'
-            #         if self.rect.y > chatacter.rect.y + 50:  # if self.rect.top < chatacter.rect.bottom
-            #             self.collision = 'top'
-            #         break
-            #     # print(self.collision)
-
-        #     if self.rect.x > chatacter.rect.x:
-        #         self.direction = 'stay_down'
-        #     if self.rect.y > chatacter.rect.y:
-        #         self.direction = 'stay_down'
-        #     if self.rect.y < chatacter.rect.y:
-        #         self.direction = 'stay_down'
 
     # оторажение
     def blit_test(self):
@@ -173,8 +150,8 @@ class Test(pygame.sprite.Sprite, character_animation.Animation):
         if self.direction == 'stay_down':
             self.image = self.animation.anim_footmen_stay_down
 
-        # self.screen.blit(self.image[int(self.animation.frame)], self.rect)
         pygame.draw.rect(self.screen, (0, 0, 255), self.rect)
+        self.screen.blit(self.image[int(self.animation.frame)], self.rect)
 
         #  if self.direction == 'stay_down':
         #      self.image = self.animation_test_stay_down

@@ -5,7 +5,7 @@ from character_class_health import Health
 
 
 # создаем по определенным критериям персонажий и добавляем в группу
-def create_characters(setting, screen, characters, camera,animation,healths):
+def create_characters(setting, screen, characters, camera, animation, healths, idd):
     # создание персонажа в определенных координатах
     while True:
         # рандомная выборка
@@ -16,16 +16,17 @@ def create_characters(setting, screen, characters, camera,animation,healths):
         # if (x < (hero.rect.x - 150) or x > (hero.rect.x + 150)) or \
         #        (y < (hero.rect.y - 150) or y > (hero.rect.y + 150)):
         # создание персонажа
-        character = Character(setting, screen,animation, x=x, y=y, view='footmen', command=1, camera_x=camera.x,
-                              camera_y=camera.y)
+        character = Character(setting, screen, animation, x=x, y=y, view='footmen', command=1, camera_x=camera.x,
+                              camera_y=camera.y, idd=idd)
 
         characters.append(character)
 
-        health = Health(setting,screen,character)
+        health = Health(setting, screen, character)
 
         healths.append(health)
 
-        return characters,healths
+        idd = idd + 1
+        return characters, healths, idd
 
         # проверка на пересечение с другими персонажами
         # if not pygame.sprite.spritecollideany(character, characters):

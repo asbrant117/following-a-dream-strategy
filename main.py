@@ -9,11 +9,11 @@ def run_game():
     pygame.init()
     # создание всех объектов
     (dt, clock, setting, animation, background_animation, screen, tiles, test, characters, healths, background_full,
-     camera) = challenging_objects()
+     camera,idd) = challenging_objects()
     # основной цикл
     while True:
         # события
-        events.check_events(test, setting, screen, characters, camera, animation, healths)
+        events.check_events(test, setting, screen, characters, camera, animation, healths,idd)
 
         # столкновения
         # test.collide_test(test,characters)

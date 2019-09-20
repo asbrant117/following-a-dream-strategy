@@ -9,8 +9,6 @@ from background_animation_statically import Background_Animation
 from background_physical import background_physical
 
 
-
-
 def challenging_objects():
     # создаем время для раскадровки
     dt = 0
@@ -23,8 +21,8 @@ def challenging_objects():
     animation = Animation()
     background_animation = Background_Animation()
 
-    #  ооздаем фон, создается картинка в отдельном окне
-    background(setting, background_animation)
+    # #  ооздаем фон, создается картинка в отдельном окне
+    # background(setting, background_animation)
 
     # параметры экрана
     screen = pygame.display.set_mode((setting.screen_width, setting.screen_height))  # экран , pygame.FULLSCREEN
@@ -46,4 +44,8 @@ def challenging_objects():
     # создаем камеру
     camera = Camera(setting)
 
-    return (dt,clock,setting,animation,background_animation,screen,tiles,test,characters,healths,background_full,camera)
+    idd = 0
+
+    return (
+        dt, clock, setting, animation, background_animation, screen, tiles, test, characters, healths, background_full,
+        camera, idd)

@@ -4,7 +4,7 @@ import character_animation
 
 
 class Character(pygame.sprite.Sprite):
-    def __init__(self, setting, screen, animation, view, command, x, y, camera_x, camera_y):
+    def __init__(self, setting, screen, animation, view, command, x, y, camera_x, camera_y,idd):
         pygame.sprite.Sprite.__init__(self)
         # инициализирует героя и поверхность
         self.screen = screen
@@ -34,6 +34,8 @@ class Character(pygame.sprite.Sprite):
         # жизнь персонажа
         self.health = self.setting.value[2][5]
         self.health_colour = self.setting.health_colour_full
+
+        self.idd = idd
 
     # Функция помогающая отслеживать перемещение
     def update_character(self, dt):
@@ -82,15 +84,4 @@ class Character(pygame.sprite.Sprite):
             # self.screen.blit(self.image[int(self.animation.frame)], self.rect)
 
 
-            if self.health >= 70:
-                self.health_colour = self.setting.health_colour_full
-            if self.health < 70 and self.health >= 30:
-                self.health_colour = self.setting.health_colour_medium
-            if self.health < 30:
-                self.health_colour = self.setting.health_colour_low
 
-            # # отображение жизни юнита
-            # pygame.draw.rect(self.screen, self.health_colour,
-            #                  (self.rect.x - abs((self.setting.value[2][1] - self.setting.value[2][6])) / 2,
-            #                   (self.rect.y + self.setting.value[2][2] + 10), 100, 8))
-            pygame.draw.rect(self.screen, (0, 0, 0), ((self.rect.x - 11), (self.rect.y + 98), 102, 10), 1)
