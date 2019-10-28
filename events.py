@@ -49,7 +49,7 @@ def check_events(test, setting, screen, characters, camera, animation, healths, 
         if keys[pygame.K_BACKSPACE]:
             (characters, healths, idd) = character_create.create_characters(setting, screen, characters, camera,
                                                                            animation,
-                                                                           healths, idd)
+                                                                           healths, idd,test)
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_RIGHT:

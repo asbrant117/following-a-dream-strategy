@@ -267,40 +267,52 @@ def frame_footmen_5S():
                                    (33, 19, 64, 92), (33, 19, 64, 92), (33, 19, 64, 92)]
 
     return ANIMATION_Footmen_Stay_DOWN
+
+
 def frame_footmen_6S():
     ANIMATION_Footmen_Stay_LEFT_DOWN = [(159, 20, 84, 92), (159, 20, 84, 92), (159, 20, 84, 92), (159, 20, 84, 92),
                                         (159, 20, 84, 92), (159, 20, 84, 92), (159, 20, 84, 92), (159, 20, 84, 92)]
 
     return ANIMATION_Footmen_Stay_LEFT_DOWN
+
+
 def frame_footmen_7S():
     ANIMATION_Footmen_Stay_LEFT = [(310, 17, 70, 92), (310, 17, 70, 92), (310, 17, 70, 92), (310, 17, 70, 92),
                                    (310, 17, 70, 92), (310, 17, 70, 92), (310, 17, 70, 92), (310, 17, 70, 92)]
 
     return ANIMATION_Footmen_Stay_LEFT
+
+
 def frame_footmen_8S():
     ANIMATION_Footmen_Stay_LEFT_UP = [(456, 14, 84, 92), (456, 14, 84, 92), (456, 14, 84, 92), (456, 14, 84, 92),
                                       (456, 14, 84, 92), (456, 14, 84, 92), (456, 14, 84, 92), (456, 14, 84, 92)]
     return ANIMATION_Footmen_Stay_LEFT_UP
+
 
 def frame_footmen_1S():
     ANIMATION_Footmen_Stay_UP = [(620, 14, 84, 92), (620, 14, 84, 92), (620, 14, 84, 92), (620, 14, 84, 92),
                                  (620, 14, 84, 92), (620, 14, 84, 92), (620, 14, 84, 92), (620, 14, 84, 92)]
     return ANIMATION_Footmen_Stay_UP
 
+
 def frame_footmen_2S():
     ANIMATION_Footmen_Stay_RIGHT_UP = [(940, 14, 84, 92), (940, 14, 84, 92), (940, 14, 84, 92), (940, 14, 84, 92),
                                        (940, 14, 84, 92), (940, 14, 84, 92), (940, 14, 84, 92), (940, 14, 84, 92)]
 
     return ANIMATION_Footmen_Stay_RIGHT_UP
+
+
 def frame_footmen_3S():
     ANIMATION_Footmen_Stay_RIGHT = [(1088, 17, 70, 92), (1088, 17, 70, 92), (1088, 17, 70, 92), (1088, 17, 70, 92),
                                     (1088, 17, 70, 92), (1088, 17, 70, 92), (1088, 17, 70, 92), (1088, 17, 70, 92)]
     return ANIMATION_Footmen_Stay_RIGHT
 
+
 def frame_footmen_4S():
     ANIMATION_Footmen_Stay_RIGHT_DOWN = [(1232, 19, 84, 92), (1232, 19, 84, 92), (1232, 19, 84, 92), (1232, 19, 84, 92),
                                          (1232, 19, 84, 92), (1232, 19, 84, 92), (1232, 19, 84, 92), (1232, 19, 84, 92)]
     return ANIMATION_Footmen_Stay_RIGHT_DOWN
+
 
 def frame_grass():
     ANIMATION_Grass = [(0, 429, 32, 32)]

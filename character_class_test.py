@@ -169,5 +169,5 @@ class Test(pygame.sprite.Sprite, character_animation.Animation):
         pygame.draw.rect(self.screen, self.health_colour,
                          (self.rect.x - abs((self.setting.value[1][1] - self.setting.value[1][6])) / 2,
                           (self.rect.y + self.setting.value[1][2] + 10), 100, 8))
-        pygame.draw.rect(self.screen, (0, 0, 0),
-                         ((self.rect.x - 11), (self.rect.y + self.setting.value[1][2] + 10), 102, 10), 1)
+        # pygame.draw.rect(self.screen, (0, 0, 0),
+        #                  ((self.rect.x - 11), (self.rect.y + self.setting.value[1][2] + 10), 102, 10), 1)

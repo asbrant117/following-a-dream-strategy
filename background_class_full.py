@@ -6,11 +6,12 @@ import character_animation
 
 ICON_DIR = os.path.dirname(__file__)  # Полный путь к каталогу с файлами
 
-picture = pygame.image.load('%s/save/save.png' % ICON_DIR)
+
 
 
 class Beckground_full(pygame.sprite.Sprite):
     def __init__(self, setting, screen):
+        picture = pygame.image.load('%s/save/save.png' % ICON_DIR)
         pygame.sprite.Sprite.__init__(self)
         # инициализируем настройки и поверхность
         self.screen = screen

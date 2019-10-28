@@ -14,6 +14,7 @@ def update_screen(setting, screen, test, characters, background_full,healths):
     # персонажи
     for character in characters:
         character.blit_character()
+        character.update_character(test)
     for health in healths:
         health.blit_Health()
 
