@@ -2,7 +2,7 @@ import pygame
 
 import display
 import events
-from challenging_objects import challenging_objects
+from main_challenging_objects import challenging_objects
 
 
 def run_game():
