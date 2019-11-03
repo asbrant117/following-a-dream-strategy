@@ -1,5 +1,5 @@
 import pygame
-
+# заметка, отоброжения фона слишком тормозит процесс. данная опирация много жрет, почему? что делать?
 
 def update_screen(setting, screen, test, characters, background_full,healths):
     # перерисовка

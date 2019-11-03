@@ -1,0 +1,11 @@
+from pygame import *
+
+class Wepon(pygame.sprite.Sprite):
+    def __init__(self, setting, screen):
+        pygame.sprite.Sprite.__init__(self)
+        # инициализируем настройки и поверхность
+        self.screen = screen
+        self.setting = setting
+
+        self.rect = pygame.Rect(self.setting.test_x, self.setting.test_y, self.setting.value[1][1],
+                                self.setting.value[1][2])

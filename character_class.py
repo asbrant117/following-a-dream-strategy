@@ -1,5 +1,5 @@
 import pygame
-
+from collide import collide_test
 import character_animation
 
 
@@ -17,6 +17,11 @@ class Character(pygame.sprite.Sprite):
         # координаты расположения
         self.rect.x = x + camera_x
         self.rect.y = y + camera_y
+
+
+
+        self.x1 = self.x2 = x + camera_x
+        self.y1 = self.y2 = y + camera_y
 
         # self.x = x
         # self.y = y
@@ -38,36 +43,47 @@ class Character(pygame.sprite.Sprite):
 
         self.target = test
         self.time = 0
+        self.collision = 'no'
+        self.purpose = 'target'
+
 
     # Функция помогающая отслеживать перемещение
     def update_character(self, test):
-        if self.time == 0:
-            distance0 = int(((test.rect.x - self.rect.x) ** 2 + (test.rect.y - self.rect.y) ** 2) ** 0.5)
-
-            distance1 = int(
-                ((test.rect.x - self.rect.x + self.setting.value[2][3]) ** 2 + (test.rect.y - self.rect.y) ** 2) ** 0.5)
-
-            distance2 = int(
-                ((test.rect.x - self.rect.x - self.setting.value[2][3]) ** 2 + (test.rect.y - self.rect.y) ** 2) ** 0.5)
-
-            distance3 = int(
-                ((test.rect.x - self.rect.x) ** 2 + (test.rect.y - self.rect.y + self.setting.value[2][3]) ** 2) ** 0.5)
-
-            distance4 = int(
-                ((test.rect.x - self.rect.x) ** 2 + (test.rect.y - self.rect.y - self.setting.value[2][3]) ** 2) ** 0.5)
-
-            distance = min(distance1, distance2, distance3, distance4)
-
-            if distance == distance1:
-                self.direction = 'left'
-            if distance == distance2:
-                self.direction = 'right'
-            if distance == distance3:
-                self.direction = 'up'
-            if distance == distance4:
-                self.direction = 'down'
 
 
+        if self.purpose == 'target':
+            if self.time == 0:
+                distance0 = int(((test.rect.x - self.rect.x) ** 2 + (test.rect.y - self.rect.y) ** 2) ** 0.5)
+
+                distance1 = int(
+                    ((test.rect.x - self.rect.x + self.setting.value[2][3]) ** 2 + (
+                                test.rect.y - self.rect.y) ** 2) ** 0.5)
+
+                distance2 = int(
+                    ((test.rect.x - self.rect.x - self.setting.value[2][3]) ** 2 + (
+                                test.rect.y - self.rect.y) ** 2) ** 0.5)
+
+                distance3 = int(
+                    ((test.rect.x - self.rect.x) ** 2 + (
+                                test.rect.y - self.rect.y + self.setting.value[2][3]) ** 2) ** 0.5)
+
+                distance4 = int(
+                    ((test.rect.x - self.rect.x) ** 2 + (
+                                test.rect.y - self.rect.y - self.setting.value[2][3]) ** 2) ** 0.5)
+
+                distance = min(distance1, distance2, distance3, distance4)
+
+                if distance == distance1:
+                    self.direction = 'left'
+                if distance == distance2:
+                    self.direction = 'right'
+                if distance == distance3:
+                    self.direction = 'up'
+                if distance == distance4:
+                    self.direction = 'down'
+
+
+        # else:
         # время действия команды на новый поиск
         self.time += 1
         if self.time == 30:
@@ -97,7 +113,11 @@ class Character(pygame.sprite.Sprite):
         #     if self.animation.frame >= len(self.image):
         #         self.animation.frame = 0
 
+    def collide(self, tiles):
+        collide_test(self, tiles)
+
     # оторажение
+
     def blit_character(self):
         if self.view == 'footmen':
             if self.direction == 'right':
