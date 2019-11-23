@@ -121,7 +121,7 @@ class Test(pygame.sprite.Sprite, character_animation.Animation):
                 self.image = self.animation.anim_test_4S
             if self.direction_stay == 'right_up':
                 self.image = self.animation.anim_test_2S
-
+        # анимация атаки
         if self.action == 'yes':
             self.image = self.animation.anim_test_5A
 

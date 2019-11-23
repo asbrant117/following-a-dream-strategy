@@ -60,8 +60,7 @@ def check_events(test, setting, screen, characters, camera, animation, healths, 
         # # атака героя
         if keys[pygame.K_SPACE]:
              test.action = 'yes'
-             test.direction = 'no'
-             test.direction_stay = 'no'
+
 
         # создание персонажей
         if keys[pygame.K_BACKSPACE]:
