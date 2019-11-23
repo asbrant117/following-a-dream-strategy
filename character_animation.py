@@ -32,6 +32,9 @@ frame_test_6S = frame.frame_test_6S()
 frame_test_7S = frame.frame_test_7S()
 frame_test_8S = frame.frame_test_8S()
 
+frame_test_5A = frame.frame_test_5A()
+
+
 # пехотинцы
 # кадры пехотинца (передвижение)
 frame_footmen_1G = frame.frame_footmen_1G()
@@ -115,6 +118,9 @@ class Animation(object):
         self.anim_test_6S = list_frame(frame_test_6S, self.sprite_test.subsurface)
         self.anim_test_7S = list_frame(frame_test_7S, self.sprite_test.subsurface)
         self.anim_test_8S = list_frame(frame_test_8S, self.sprite_test.subsurface)
+        # анимация тестового героя (атака)
+        self.anim_test_5A = list_frame(frame_test_5A, self.sprite_test.subsurface)
+
 
         # Пехотинец
         # анимация пехотинцы (передвижение)
@@ -142,21 +148,21 @@ class Animation(object):
 
         #Бугай
         # анимация тестового героя (передвижение)
-        self.anim_grunt_1G = list_frame(frame_test_1G, self.sprite_grunt.subsurface)
-        self.anim_grunt_2G = list_frame(frame_test_2G, self.sprite_grunt.subsurface)
-        self.anim_grunt_3G = list_frame(frame_test_3G, self.sprite_grunt.subsurface)
-        self.anim_grunt_4G = list_frame(frame_test_4G, self.sprite_grunt.subsurface)
-        self.anim_grunt_5G = list_frame(frame_test_5G, self.sprite_grunt.subsurface)
-        self.anim_grunt_6G = list_frame(frame_test_6G, self.sprite_grunt.subsurface)
-        self.anim_grunt_7G = list_frame(frame_test_7G, self.sprite_grunt.subsurface)
-        self.anim_grunt_8G = list_frame(frame_test_8G, self.sprite_grunt.subsurface)
+        self.anim_grunt_1G = list_frame(frame_grunt_1G, self.sprite_grunt.subsurface)
+        self.anim_grunt_2G = list_frame(frame_grunt_2G, self.sprite_grunt.subsurface)
+        self.anim_grunt_3G = list_frame(frame_grunt_3G, self.sprite_grunt.subsurface)
+        self.anim_grunt_4G = list_frame(frame_grunt_4G, self.sprite_grunt.subsurface)
+        self.anim_grunt_5G = list_frame(frame_grunt_5G, self.sprite_grunt.subsurface)
+        self.anim_grunt_6G = list_frame(frame_grunt_6G, self.sprite_grunt.subsurface)
+        self.anim_grunt_7G = list_frame(frame_grunt_7G, self.sprite_grunt.subsurface)
+        self.anim_grunt_8G = list_frame(frame_grunt_8G, self.sprite_grunt.subsurface)
         # анимация тестового героя (стоять)
-        self.anim_grunt_1S = list_frame(frame_test_1S, self.sprite_grunt.subsurface)
-        self.anim_grunt_2S = list_frame(frame_test_2S, self.sprite_grunt.subsurface)
-        self.anim_grunt_3S = list_frame(frame_test_3S, self.sprite_grunt.subsurface)
-        self.anim_grunt_4S = list_frame(frame_test_4S, self.sprite_grunt.subsurface)
-        self.anim_grunt_5S = list_frame(frame_test_5S, self.sprite_grunt.subsurface)
-        self.anim_grunt_6S = list_frame(frame_test_6S, self.sprite_grunt.subsurface)
-        self.anim_grunt_7S = list_frame(frame_test_7S, self.sprite_grunt.subsurface)
-        self.anim_grunt_8S = list_frame(frame_test_8S, self.sprite_grunt.subsurface)
+        self.anim_grunt_1S = list_frame(frame_grunt_1S, self.sprite_grunt.subsurface)
+        self.anim_grunt_2S = list_frame(frame_grunt_2S, self.sprite_grunt.subsurface)
+        self.anim_grunt_3S = list_frame(frame_grunt_3S, self.sprite_grunt.subsurface)
+        self.anim_grunt_4S = list_frame(frame_grunt_4S, self.sprite_grunt.subsurface)
+        self.anim_grunt_5S = list_frame(frame_grunt_5S, self.sprite_grunt.subsurface)
+        self.anim_grunt_6S = list_frame(frame_grunt_6S, self.sprite_grunt.subsurface)
+        self.anim_grunt_7S = list_frame(frame_grunt_7S, self.sprite_grunt.subsurface)
+        self.anim_grunt_8S = list_frame(frame_grunt_8S, self.sprite_grunt.subsurface)
 

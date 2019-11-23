@@ -2,7 +2,7 @@ class Settings(object):
     # класс для хранения всех настроик игры
     def __init__(self):
         # параметры экрана
-        self.screen_width = 1200  # 1600
+        self.screen_width = 1600  # 1600
         self.screen_height = 900  # 900
         self.screen_color = (230, 230, 230)
 
@@ -11,13 +11,13 @@ class Settings(object):
         # колличество циклов while = кадрам игры в секунду
         self.fps = 60
         # время жизни отдельного карда
-        self.time = 180
+        self.time = 360
 
         # параметры тестового персонажа
         self.test_speed = 4
         self.test_speed_2 = 2
-        self.test_x = 0
-        self.test_y = 0
+        self.test_x = 40
+        self.test_y = 40
         self.test_health = 100
 
         # цвет жизни персожажа
@@ -41,8 +41,8 @@ class Settings(object):
         self.tile_length = 32
 
         self.value = [['name', 'ширина', 'высота', 'скорость', 'скоростьДИАГ', 'здоровье','ширинаЗДОР',''],
-                      ['test       ', 55, 70, 8, 3, 30,100],
-                      ['footmen    ', 55, 70, 8, 3, 100,100],
+                      ['test       ', 55, 70, 6, 4, 30,100],
+                      ['footmen    ', 55, 70, 4, 3, 100,100],
                       ['grunt      ', 1, 100, 100, 10, 100,100]]
 
         self.value_healf = [['']]

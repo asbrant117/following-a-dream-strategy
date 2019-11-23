@@ -1,23 +1,27 @@
 import pygame
-from pygame import *
-import character_class
 
 
-class Health(character_class.Character):
-    def __init__(self, setting, screen, animation, view, command, x, y, camera_x, camera_y):
-        character_class.Character.__init__(self, setting, screen, animation, view, command, x, y, camera_x, camera_y)
-        # инициализируем настройки и поверхность
+class Health(pygame.sprite.Sprite):
+    def __init__(self, setting, screen, character):
+        pygame.sprite.Sprite.__init__(self)
 
+        self.screen = screen
+        self.setting = setting
+        self.character = character
 
-        self.rect_health = pygame.Rect((self.rect.x - abs(
-            (self.setting.value[self.view][1] - self.setting.value[self.view][6])) / 2,
-                                 (self.rect.y + self.setting.value[self.view][2] + 10), 100, 8))
+        self.rect = pygame.Rect((self.character.rect.x - abs((self.setting.value[2][1] - self.setting.value[2][6])) / 2,
+                                 (self.character.rect.y + self.setting.value[2][2] + 10), 100, 8))
 
-    def blit_health(self):
-        if self.health < 70 and self.health >= 30:
-            self.health_colour = self.setting.health_colour_medium
-        if self.health < 30:
-            self.health_colour = self.setting.health_colour_low
+        self.rect_edging = (self.rect.x - 1, self.rect.y - 1, 100 + 2, 8 + 2)
+        self.health = self.character.health
 
-            # отображение жизни юнита
-        pygame.draw.rect(self.screen, self.health_colour, self.rect_health )
+        # if self.health >= 70:
+        #     self.health_colour = self.setting.health_colour_full
+        # if self.health < 70 and self.health >= 30:
+        #     self.health_colour = self.setting.health_colour_medium
+        # if self.health < 30:
+        #     self.health_colour = self.setting.health_colour_low
+
+    def blit_Health(self):
+        pygame.draw.rect(self.screen, self.setting.health_colour_full, self.rect)
+        pygame.draw.rect(self.screen, (0, 0, 0), self.rect_edging, 1)

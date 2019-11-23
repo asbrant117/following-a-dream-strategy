@@ -2,27 +2,27 @@ import os
 
 import pygame
 
-ANIMATION_Grass = [(0, 429, 32, 32)]
-ICON_DIR = os.path.dirname(__file__)  # Полный путь к каталогу с файлами
-picture = pygame.image.load('%s/picter/TerraTiles.png' % ICON_DIR)
+import background_animation_statically
+
 
 
 class Terra_Tiles(pygame.sprite.Sprite):
-    def __init__(self, setting, screen_save, x, y, view):
+    def __init__(self, setting, screen_save, background_animation, x, y, view):
         pygame.sprite.Sprite.__init__(self)
         self.screen_save = screen_save
         self.setting = setting
+        self.background_animation = background_animation
 
         self.view = view
         if view == 'grass':
             self.width = self.setting.tile_width
             self.length = self.setting.tile_length
-            self.image = picture.subsurface((0, 495, 32, 32))
+            self.image = background_animation.anim_grass
 
         if view == 'tree':
             self.width = self.setting.tile_width
             self.length = self.setting.tile_length
-            self.image = picture.subsurface((0, 231, 32, 32))
+            self.image = background_animation.anim_tree
 
         # параметры прямоугольника персонажа
         self.rect = pygame.Rect(x, y, self.width, self.length)
@@ -41,4 +41,4 @@ class Terra_Tiles(pygame.sprite.Sprite):
     #             self.frame = 0
 
     def blit(self):
-        self.screen_save.blit(self.image, self.rect)
+        self.screen_save.blit(self.image[int(0)], self.rect)

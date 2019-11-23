@@ -1,5 +1,6 @@
 import pygame
 from pygame import *
+from collide import collide_test
 
 import character_animation
 
@@ -33,23 +34,25 @@ class Test(pygame.sprite.Sprite, character_animation.Animation):
 
         # флажки перемещения
         # флажок направления
-        self.direction = 'down'
+        self.direction = 'no'
+        self.direction_stay = 'down'
         self.collision = 'No'
+        self.action = 'no'
 
     # Функция помогающая отслеживать перемещение
     def update_test(self, dt):
 
         if self.direction == 'right' and self.collision != 'right':
-            self.rect.x += self.setting.value[1][4]
+            self.rect.x += self.setting.value[1][3]
 
         if self.direction == 'left' and self.collision != 'left':
-            self.rect.x -= self.setting.value[1][4]
+            self.rect.x -= self.setting.value[1][3]
 
         if self.direction == 'up' and self.collision != 'top':
-            self.rect.y -= self.setting.value[1][4]
+            self.rect.y -= self.setting.value[1][3]
 
         if self.direction == 'down' and self.collision != 'bottom':
-            self.rect.y += self.setting.value[1][4]
+            self.rect.y += self.setting.value[1][3]
 
         if self.direction == 'right_up' and self.collision != 'right' and self.collision != 'top':
             self.rect.x += self.setting.value[1][4]
@@ -76,84 +79,13 @@ class Test(pygame.sprite.Sprite, character_animation.Animation):
             if self.animation.frame >= len(self.image):
                 self.animation.frame = 0
 
-    def collide_test(self, chatacters, tiles_tree):
-        for chatacter in chatacters:
-            if sprite.collide_rect(self, chatacter):
-                print(1)
-                if self.rect.right >= chatacter.rect.left - self.setting.value[1][
-                    3] and self.rect.right <= chatacter.rect.left + self.setting.value[1][
-                    3] and self.rect.bottom >= chatacter.rect.top:
-                    self.rect.right = chatacter.rect.left
-                    # self.collision = 'right'
-
-                if self.rect.left >= chatacter.rect.right - self.setting.value[1][
-                    3] and self.rect.left <= chatacter.rect.right + self.setting.value[1][3]:
-                    self.rect.left = chatacter.rect.right
-                    # self.collision = 'left'
-
-                if self.rect.bottom >= chatacter.rect.top - self.setting.value[1][
-                    3] and self.rect.bottom <= chatacter.rect.top + self.setting.value[1][3]:
-                    self.rect.bottom = chatacter.rect.top
-                # self.collision = 'bottom'
-
-                if self.rect.top >= chatacter.rect.bottom - self.setting.value[1][
-                    3] and self.rect.top <= chatacter.rect.bottom + 4:
-                    self.rect.top = chatacter.rect.bottom
-                    # self.collision = 'bottom'
-            else:
-                self.collision = 'no'
-
-        for tile_tree in tiles_tree:
-            if sprite.collide_rect(self, tile_tree):
-                print(1)
-                if self.rect.right >= tile_tree.rect.left - self.setting.value[1][
-                    3] and self.rect.right <= tile_tree.rect.left + self.setting.value[1][
-                    3] and self.rect.bottom >= tile_tree.rect.top:
-                    self.rect.right = tile_tree.rect.left
-                    # self.collision = 'right'
-
-                if self.rect.left >= tile_tree.rect.right - self.setting.value[1][
-                    3] and self.rect.left <= tile_tree.rect.right + self.setting.value[1][3]:
-                    self.rect.left = tile_tree.rect.right
-                    # self.collision = 'left'
-
-                if self.rect.bottom >= tile_tree.rect.top - self.setting.value[1][
-                    3] and self.rect.bottom <= tile_tree.rect.top + self.setting.value[1][3]:
-                    self.rect.bottom = tile_tree.rect.top
-                # self.collision = 'bottom'
-
-                if self.rect.top >= tile_tree.rect.bottom - self.setting.value[1][
-                    3] and self.rect.top <= tile_tree.rect.bottom + 4:
-                    self.rect.top = tile_tree.rect.bottom
-                    # self.collision = 'bottom'
-            else:
-                self.collision = 'no'
-            #     self.rect.right = chatacter.rect.left
-            #     self.collision = 'left'
-            #     print('!!!!!!!!!!1')
-
-            # for chatacter in chatacters:
-            #     if sprite.collide_rect(self, chatacter):
-            #         if self.rect.x + 40 < chatacter.rect.x:
-            #             self.collision = 'right'
-            #         if self.rect.x > chatacter.rect.x + 40:
-            #             self.collision = 'left'
-            #         if self.rect.y + 50 < chatacter.rect.y:
-            #             self.collision = 'bottom'
-            #         if self.rect.y > chatacter.rect.y + 50:  # if self.rect.top < chatacter.rect.bottom
-            #             self.collision = 'top'
-            #         break
-            #     # print(self.collision)
-
-        #     if self.rect.x > chatacter.rect.x:
-        #         self.direction = 'stay_down'
-        #     if self.rect.y > chatacter.rect.y:
-        #         self.direction = 'stay_down'
-        #     if self.rect.y < chatacter.rect.y:
-        #         self.direction = 'stay_down'
+    def collide(self, chatacters, tiles):
+        collide_test(self, chatacters)
+        collide_test(self, tiles)
 
     # оторажение
     def blit_test(self):
+        # анимация передвижения
         if self.direction == 'right':
             self.image = self.animation.anim_test_3G
         if self.direction == 'left':
@@ -170,19 +102,32 @@ class Test(pygame.sprite.Sprite, character_animation.Animation):
             self.image = self.animation.anim_test_4G
         if self.direction == 'right_up':
             self.image = self.animation.anim_test_2G
-        if self.direction == 'stay_down':
-            self.image = self.animation.anim_footmen_stay_down
 
-        # self.screen.blit(self.image[int(self.animation.frame)], self.rect)
+        # анимация стоя
+        if self.direction == 'no' and self.action == 'no':
+            if self.direction_stay == 'right':
+                self.image = self.animation.anim_test_3S
+            if self.direction_stay == 'left':
+                self.image = self.animation.anim_test_7S
+            if self.direction_stay == 'up':
+                self.image = self.animation.anim_test_1S
+            if self.direction_stay == 'down':
+                self.image = self.animation.anim_test_5S
+            if self.direction_stay == 'left_down':
+                self.image = self.animation.anim_test_6S
+            if self.direction_stay == 'left_up':
+                self.image = self.animation.anim_test_8S
+            if self.direction_stay == 'right_down':
+                self.image = self.animation.anim_test_4S
+            if self.direction_stay == 'right_up':
+                self.image = self.animation.anim_test_2S
+        # анимация атаки
+        if self.action == 'yes':
+            self.image = self.animation.anim_test_5A
+
         pygame.draw.rect(self.screen, (0, 0, 255), self.rect)
+        self.screen.blit(self.image[int(self.animation.frame)], self.rect)
 
-        #  if self.direction == 'stay_down':
-        #      self.image = self.animation_test_stay_down
-        #  if self.direction == 'stay_left':
-        #      self.image = self.animation_test_stay_left
-        #  if self.direction == 'stay_right':
-        #      self.image = self.animation_test_stay_right
-        # N_colour = self.setting.health_colour_full
         if self.health < 70 and self.health >= 30:
             self.health_colour = self.setting.health_colour_medium
         if self.health < 30:
@@ -192,5 +137,5 @@ class Test(pygame.sprite.Sprite, character_animation.Animation):
         pygame.draw.rect(self.screen, self.health_colour,
                          (self.rect.x - abs((self.setting.value[1][1] - self.setting.value[1][6])) / 2,
                           (self.rect.y + self.setting.value[1][2] + 10), 100, 8))
-        pygame.draw.rect(self.screen, (0, 0, 0),
-                         ((self.rect.x - 11), (self.rect.y + self.setting.value[1][2] + 10), 102, 10), 1)
+        # pygame.draw.rect(self.screen, (0, 0, 0),
+        #                  ((self.rect.x - 11), (self.rect.y + self.setting.value[1][2] + 10), 102, 10), 1)
